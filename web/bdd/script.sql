@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS sp_user;
 DROP TABLE IF EXISTS sp_score;
 CREATE TABLE IF NOT EXISTS sp_user (
     user_name VARCHAR(50) PRIMARY KEY NOT NULL,
-    passwd VARCHAR(50),
+    passwd VARCHAR(100),
     ranking INT NOT NULL
 )ENGINE=InnoDB;
 
