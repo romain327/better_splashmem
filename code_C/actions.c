@@ -14,186 +14,90 @@ void actions_do(t_player *p_player, enum action act_id)
     case ACTION_STILL:
         if (p_player->credits >= STILL_COST)
         {
-            p_player->credits = p_player->credits - STILL_COST;
+            STILL(p_player);
         }
         break;
 
     case ACTION_MOVE_L:
         if (p_player->credits >= MOVE_COST)
         {
-            p_player->x--;
-            if (p_player->x > 10000)
-            {
-                p_player->x = MAP_SIZE - 1;
-            }
-            p_player->credits = p_player->credits - MOVE_COST;
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
+            MOVE_L(p_player);
         }
         break;
 
     case ACTION_MOVE_R:
         if (p_player->credits >= MOVE_COST)
         {
-            p_player->x++;
-            if (p_player->x > MAP_SIZE - 1)
-            {
-                p_player->x = 0;
-            }
-            p_player->credits = p_player->credits - MOVE_COST;
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
+            MOVE_R(p_player);
         }
         break;
 
     case ACTION_MOVE_U:
         if (p_player->credits >= MOVE_COST)
         {
-            p_player->y--;
-            if (p_player->y > 10000)
-            {
-                p_player->y = MAP_SIZE - 1;
-            }
-            p_player->credits = p_player->credits - MOVE_COST;
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
+            MOVE_U(p_player);
         }
         break;
 
     case ACTION_MOVE_D:
         if (p_player->credits >= MOVE_COST)
         {
-            p_player->y++;
-            if (p_player->y > MAP_SIZE - 1)
-            {
-                p_player->y = 0;
-            }
-            p_player->credits = p_player->credits - MOVE_COST;
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
+            MOVE_D(p_player);
         }
         break;
     case ACTION_DASH_L:
         if (p_player->credits >= DASH_COST)
         {
-            for (uint8_t i = 0; i < DASH_LENGTH; i++)
-            {
-                p_player->x--;
-                if (p_player->x > 10000)
-                {
-                    p_player->x = MAP_SIZE - 1;
-                }
-                world_paint_spot(p_player->x, p_player->y, p_player->id);
-            }
-            p_player->credits = p_player->credits - DASH_COST;
+            DASH_L(p_player);
         }
         break;
 
     case ACTION_DASH_R:
         if (p_player->credits >= DASH_COST)
         {
-            for (uint8_t i = 0; i < DASH_LENGTH; i++)
-            {
-                p_player->x++;
-                if (p_player->x > MAP_SIZE - 1)
-                {
-                    p_player->x = 0;
-                }
-                world_paint_spot(p_player->x, p_player->y, p_player->id);
-            }
-            p_player->credits = p_player->credits - DASH_COST;
+            DASH_R(p_player);
         }
         break;
 
     case ACTION_DASH_U:
         if (p_player->credits >= DASH_COST)
         {
-            for (uint8_t i = 0; i < DASH_LENGTH; i++)
-            {
-                p_player->y--;
-                if (p_player->y > 10000)
-                {
-                    p_player->y = MAP_SIZE - 1;
-                }
-                world_paint_spot(p_player->x, p_player->y, p_player->id);
-            }
-            p_player->credits = p_player->credits - DASH_COST;
+            DASH_U(p_player);
         }
         break;
 
     case ACTION_DASH_D:
         if (p_player->credits >= DASH_COST)
         {
-            for (uint8_t i = 0; i < DASH_LENGTH; i++)
-            {
-                p_player->y++;
-                if (p_player->y > MAP_SIZE - 1)
-                {
-                    p_player->y = 0;
-                }
-                world_paint_spot(p_player->x, p_player->y, p_player->id);
-            }
-            p_player->credits = p_player->credits - DASH_COST;
+            DASH_D(p_player);
         }
         break;
 
     case ACTION_TELEPORT_L:
         if (p_player->credits >= TELEPORT_COST)
         {
-            for (uint8_t i = 0; i < TELEPORT_LENGTH; i++)
-            {
-                p_player->x--;
-                if (p_player->x > 10000)
-                {
-                    p_player->x = MAP_SIZE - 1;
-                }
-            }
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
-            p_player->credits = p_player->credits - TELEPORT_COST;
+            TELEPORT_L(p_player);
         }
         break;
 
     case ACTION_TELEPORT_R:
         if (p_player->credits >= TELEPORT_COST)
         {
-            for (uint8_t i = 0; i < TELEPORT_LENGTH; i++)
-            {
-                p_player->x++;
-                if (p_player->x > MAP_SIZE - 1)
-                {
-                    p_player->x = 0;
-                }
-            }
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
-            p_player->credits = p_player->credits - TELEPORT_COST;
+            TELEPORT_R(p_player);
         }
         break;
 
     case ACTION_TELEPORT_U:
         if (p_player->credits >= TELEPORT_COST)
         {
-            for (uint8_t i = 0; i < TELEPORT_LENGTH; i++)
-            {
-                p_player->y--;
-                if (p_player->y > 10000)
-                {
-                    p_player->y = MAP_SIZE - 1;
-                }
-            }
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
-            p_player->credits = p_player->credits - TELEPORT_COST;
+            TELEPORT_U(p_player);
         }
         break;
 
     case ACTION_TELEPORT_D:
         if (p_player->credits >= TELEPORT_COST)
         {
-            for (uint8_t i = 0; i < TELEPORT_LENGTH; i++)
-            {
-                p_player->y++;
-                if (p_player->y > MAP_SIZE - 1)
-                {
-                    p_player->y = 0;
-                }
-            }
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
-            p_player->credits = p_player->credits - TELEPORT_COST;
+            TELEPORT_D(p_player);
         }
         break;
 
@@ -257,3 +161,149 @@ void Splash(uint32_t xpos, uint32_t ypos, uint32_t plID, uint32_t splashSize)
         }
     }
 }
+
+void STILL(t_player *p_player){
+    p_player->credits = p_player->credits - STILL_COST;
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+}
+void MOVE_L(t_player *p_player){
+    p_player->x--;
+    if (p_player->x > 10000)
+    {
+        p_player->x = MAP_SIZE - 1;
+    }
+    p_player->credits = p_player->credits - MOVE_COST;
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+}
+void MOVE_R(t_player *p_player){
+    p_player->x++;
+    if (p_player->x > MAP_SIZE - 1)
+    {
+        p_player->x = 0;
+    }
+    p_player->credits = p_player->credits - MOVE_COST;
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+}
+void MOVE_U(t_player *p_player){
+    p_player->y--;
+    if (p_player->y > 10000)
+    {
+        p_player->y = MAP_SIZE - 1;
+    }
+    p_player->credits = p_player->credits - MOVE_COST;
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+}
+void MOVE_D(t_player *p_player){
+    p_player->y++;
+    if (p_player->y > MAP_SIZE - 1)
+    {
+        p_player->y = 0;
+    }
+    p_player->credits = p_player->credits - MOVE_COST;
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+}
+void DASH_L(t_player *p_player){
+    for (uint8_t i = 0; i < DASH_LENGTH; i++)
+    {
+        p_player->x--;
+        if (p_player->x > 10000)
+        {
+            p_player->x = MAP_SIZE - 1;
+        }
+        world_paint_spot(p_player->x, p_player->y, p_player->id);
+    }
+    p_player->credits = p_player->credits - DASH_COST;
+}
+void DASH_R(t_player *p_player){
+    for (uint8_t i = 0; i < DASH_LENGTH; i++)
+    {
+        p_player->x++;
+        if (p_player->x > MAP_SIZE - 1)
+        {
+            p_player->x = 0;
+        }
+        world_paint_spot(p_player->x, p_player->y, p_player->id);
+    }
+    p_player->credits = p_player->credits - DASH_COST;
+}
+void DASH_U(t_player *p_player){
+    for (uint8_t i = 0; i < DASH_LENGTH; i++)
+    {
+        p_player->y--;
+        if (p_player->y > 10000)
+        {
+            p_player->y = MAP_SIZE - 1;
+        }
+        world_paint_spot(p_player->x, p_player->y, p_player->id);
+    }
+    p_player->credits = p_player->credits - DASH_COST;
+}
+void DASH_D(t_player *p_player){
+    for (uint8_t i = 0; i < DASH_LENGTH; i++)
+    {
+        p_player->y++;
+        if (p_player->y > MAP_SIZE - 1)
+        {
+            p_player->y = 0;
+        }
+        world_paint_spot(p_player->x, p_player->y, p_player->id);
+    }
+    p_player->credits = p_player->credits - DASH_COST;
+}
+void TELEPORT_L(t_player *p_player){
+    for (uint8_t i = 0; i < TELEPORT_LENGTH; i++)
+    {
+        p_player->x--;
+        if (p_player->x > 10000)
+        {
+            p_player->x = MAP_SIZE - 1;
+        }
+    }
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+    p_player->credits = p_player->credits - TELEPORT_COST;
+}
+void TELEPORT_R(t_player *p_player){
+    for (uint8_t i = 0; i < TELEPORT_LENGTH; i++)
+    {
+        p_player->x++;
+        if (p_player->x > MAP_SIZE - 1)
+        {
+            p_player->x = 0;
+        }
+    }
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+    p_player->credits = p_player->credits - TELEPORT_COST;
+}
+void TELEPORT_U(t_player *p_player){
+    for (uint8_t i = 0; i < TELEPORT_LENGTH; i++)
+    {
+        p_player->y--;
+        if (p_player->y > 10000)
+        {
+            p_player->y = MAP_SIZE - 1;
+        }
+    }
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+    p_player->credits = p_player->credits - TELEPORT_COST;
+}
+void TELEPORT_D(t_player *p_player){
+    for (uint8_t i = 0; i < TELEPORT_LENGTH; i++)
+    {
+        p_player->y++;
+        if (p_player->y > MAP_SIZE - 1)
+        {
+            p_player->y = 0;
+        }
+    }
+    world_paint_spot(p_player->x, p_player->y, p_player->id);
+    p_player->credits = p_player->credits - TELEPORT_COST;
+}
+// void SPLASH(t_player *p_player);
+// void BOMB(t_player *p_player);
+// void ROCKET(t_player *p_player);
+// void GRAB(t_player *p_player);
+// void STUN(t_player *p_player);er *p_player);
+// void BOMB(t_player *p_player);
+// void ROCKET(t_player *p_player);
+// void GRAB(t_player *p_player);
+// void STUN(t_player *p_player);
