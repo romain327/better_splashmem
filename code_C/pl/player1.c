@@ -3,41 +3,7 @@
 #define MAX_PLAY_ACTION 11
 
 char play_actions[] = {
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_DASH_R,
-    ACTION_MOVE_D,
-    /*/ ACTION_MOVE_L,
-    // ACTION_MOVE_R,
-    // ACTION_MOVE_U,
-    // ACTION_MOVE_D,
-    // ACTION_DASH_L,
-     ACTION_DASH_R,
-    // ACTION_DASH_U,
-     ACTION_DASH_D,
-    // ACTION_TELEPORT_L,
-    // ACTION_TELEPORT_R,
-    // ACTION_TELEPORT_U,
-    // ACTION_TELEPORT_D,
-    // ACTION_SPLASH,
-    // ACTION_BOMB,
-    // ACTION_NUMBER
-    ACTION_TELEPORT_D,
-    ACTION_BOMB,
-    ACTION_TELEPORT_R,
-    // ACTION_BOMB,
-    ACTION_MOVE_R,
-    ACTION_MOVE_R,
-    ACTION_MOVE_R,
-    ACTION_BOMB,
-    ACTION_MOVE_R,*/
+    ACTION_DASH_L
 };
 
 char get_action()
@@ -50,6 +16,6 @@ char get_action()
     if (i >= MAX_PLAY_ACTION)
     {
         i = 0;
-    }
+    } 
     return (ret_val);
 }

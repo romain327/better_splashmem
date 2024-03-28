@@ -3,10 +3,6 @@
 
 #include "player.h"
 
-
-
-
-
 enum action
 {
     ACTION_STILL,
@@ -26,6 +22,25 @@ enum action
     ACTION_BOMB,
     ACTION_NUMBER
 };
+
+void STILL(t_player *p_player);
+void MOVE_L(t_player *p_player);
+void MOVE_R(t_player *p_player);
+void MOVE_U(t_player *p_player);
+void MOVE_D(t_player *p_player);
+void DASH_L(t_player *p_player);
+void DASH_R(t_player *p_player);
+void DASH_U(t_player *p_player);
+void DASH_D(t_player *p_player);
+void TELEPORT_L(t_player *p_player);
+void TELEPORT_R(t_player *p_player);
+void TELEPORT_U(t_player *p_player);
+void TELEPORT_D(t_player *p_player);
+void SPLASH(t_player *p_player);
+void BOMB(t_player *p_player);
+void ROCKET(t_player *p_player);
+void GRAB(t_player *p_player);
+void STUN(t_player *p_player);
 
 void actions_do(t_player *p_player, enum action act_id);
 void actions_init();
