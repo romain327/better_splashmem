@@ -5,5 +5,4 @@ require_once("functions.php");
 $html = file_get_contents("html/landing.html");
 
 session_start();
-$html = retrieve_ranking($conn, $html);
 echo $html;
