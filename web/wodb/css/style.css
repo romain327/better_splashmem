@@ -1,0 +1,105 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    background-color: #181818;
+    margin: 0;
+    padding: 0;
+}
+
+.landing_header {
+    background-color: #fc5e03;
+    display : flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+}
+
+.menu {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.landing_main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.form_container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.name_picker {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
+
+.upload_file {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
+
+.connection {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: fit-content;
+    margin: 10px;
+}
+
+.menu_link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu_link2 {
+    color: #181818;
+    text-decoration: none;
+}
+
+.menu_link:hover {
+    color: #181818;
+}
+
+input {
+    border-radius: 5px;
+    border: 2px solid #fc5e03;
+    background-color: #181818;
+    color: #ffffff;
+}
+
+button {
+    border-radius: 5px;
+    border: 2px solid #fc5e03;
+    background-color: #181818;
+    color: #ffffff;
+}
+
+button:hover {
+    background-color: #fc5e03;
+    color: #181818;
+}

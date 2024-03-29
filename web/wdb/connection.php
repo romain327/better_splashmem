@@ -7,7 +7,7 @@ $html = file_get_contents("html/landing.html");
 session_start();
 if(isset($_POST["name_nac"])) {
     $name = $_POST["name_nac"];
-    $sql = "INSERT INTO sp_user(user_name, ranking) VALUES(?, 0)";
+    $sql = "INSERT INTO sp_user(user_name, libs) VALUES(?, 0)";
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt, $sql);
     mysqli_stmt_bind_param($stmt, "s", $name);
@@ -50,7 +50,7 @@ elseif(isset($_POST["name2"]) && isset($_POST["password2"]) && isset($_POST["pas
             $html = str_replace("<!--[name]-->", "<p>Ce nom est déjà pris.</p>", $html);
         }
         else {
-            $sql = "INSERT INTO sp_user(user_name, passwd, ranking) VALUES(?, ?, 0)";
+            $sql = "INSERT INTO sp_user(user_name, passwd, libs) VALUES(?, ?, 0)";
             $stmt = mysqli_stmt_init($conn);
             mysqli_stmt_prepare($stmt, $sql);
             mysqli_stmt_bind_param($stmt, "ss", $name, $password);
