@@ -3,8 +3,13 @@
 #include "./Include/fifo_bomb.h"
 #include <stdio.h>
 #include "./Include/param.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
+#include "./Include/splash.h"
 
 // world_paint_spot(uint32_t x, uint32_t y, uint32_t num)
+
+int PwrUP_TOURBILOL_Time = 0;
 
 void actions_do(t_player *p_player, enum action act_id)
 {
@@ -117,11 +122,155 @@ void actions_do(t_player *p_player, enum action act_id)
         }
         break;
 
+    case ACTION_PwrUP_TOURBILOL:
+
+        p_player->PwrUP_id = PwrUP_TOURBILOL;
+
+        break;
+
+    case ACTION_PwrUP_NoPwrUp:
+
+        p_player->PwrUP_id = PwrUP_NoPwrUp;
+
+        break;
+
     default:
         printf("Err: No action corresponding");
         break;
     }
+
+    PwrUP_do(p_player);
 }
+
+void PwrUP_do(t_player *p_player)
+{
+
+    switch (p_player->PwrUP_id)
+    {
+    case PwrUP_TOURBILOL:
+
+        PwrUP_TOURBILOL_Time++;
+
+        if(PwrUP_TOURBILOL_Time == 6)
+        {
+            PwrUP_TOURBILOL_Time = 0;
+        }
+
+        if( (((p_player->x)+2)<96) && (((p_player->y)+2<96)) && (((p_player->x))> 4) && (((p_player->y))> 4) )
+        {
+
+            switch (PwrUP_TOURBILOL_Time)
+            {
+            case 0:
+
+            world_paint_spot((p_player->x)+3, (p_player->y)+3, p_player->id);
+            world_paint_spot((p_player->x)+3, (p_player->y)-3, p_player->id);
+            world_paint_spot((p_player->x)-3, (p_player->y)-3, p_player->id);
+            world_paint_spot((p_player->x)-3, (p_player->y)+3, p_player->id);
+
+            break;
+
+            case 1:
+
+            world_paint_spot((p_player->x)+4, (p_player->y)+2, p_player->id);
+            world_paint_spot((p_player->x)+2, (p_player->y)-4, p_player->id);
+            world_paint_spot((p_player->x)-4, (p_player->y)-2, p_player->id);
+            world_paint_spot((p_player->x)-2, (p_player->y)+4, p_player->id);
+
+            break;
+
+            case 2:
+
+            world_paint_spot((p_player->x)+5, (p_player->y)+1, p_player->id);
+            world_paint_spot((p_player->x)+1, (p_player->y)-5, p_player->id);
+            world_paint_spot((p_player->x)-5, (p_player->y)-1, p_player->id);
+            world_paint_spot((p_player->x)-1, (p_player->y)+5, p_player->id);
+
+            break;
+
+            case 3:
+
+            world_paint_spot((p_player->x)+5, (p_player->y), p_player->id);
+            world_paint_spot((p_player->x), (p_player->y)-5, p_player->id);
+            world_paint_spot((p_player->x)-5, (p_player->y), p_player->id);
+            world_paint_spot((p_player->x), (p_player->y)+5, p_player->id);
+
+            break;
+
+            case 4:
+
+            world_paint_spot((p_player->x)+5, (p_player->y)-1, p_player->id);
+            world_paint_spot((p_player->x)-1, (p_player->y)-5, p_player->id);
+            world_paint_spot((p_player->x)-5, (p_player->y)+1, p_player->id);
+            world_paint_spot((p_player->x)+1, (p_player->y)+5, p_player->id);
+
+            break;
+
+            case 5:
+
+            world_paint_spot((p_player->x)+4, (p_player->y)-2, p_player->id);
+            world_paint_spot((p_player->x)-2, (p_player->y)-4, p_player->id);
+            world_paint_spot((p_player->x)-4, (p_player->y)+2, p_player->id);
+            world_paint_spot((p_player->x)+2, (p_player->y)+4, p_player->id);
+
+            break;
+
+            default:
+            break;
+            }
+
+        }
+
+        p_player->credits = p_player->credits - TOURBILOL_COST;
+
+    break;
+
+    default:
+    break;
+    }
+}
+
+
+
+void DrawCircle(SDL_Renderer* renderer, int32_t centreX, int32_t centreY, int32_t radius)
+{
+const int32_t diameter = (radius * 2);
+
+int32_t x = (radius - 1);
+int32_t y = 0;
+int32_t tx = 1;
+int32_t ty = 1;
+int32_t error = (tx - diameter);
+
+while (x >= y)
+{
+// Each of the following renders an octant of the circle
+SDL_RenderDrawPoint(renderer, centreX + x, centreY - y);
+SDL_RenderDrawPoint(renderer, centreX + x, centreY + y);
+SDL_RenderDrawPoint(renderer, centreX - x, centreY - y);
+SDL_RenderDrawPoint(renderer, centreX - x, centreY + y);
+SDL_RenderDrawPoint(renderer, centreX + y, centreY - x);
+SDL_RenderDrawPoint(renderer, centreX + y, centreY + x);
+SDL_RenderDrawPoint(renderer, centreX - y, centreY - x);
+SDL_RenderDrawPoint(renderer, centreX - y, centreY + x);
+
+    if (error <= 0)
+    {
+    ++y;
+    error += ty;
+    ty += 2;
+    }
+
+    if (error > 0)
+    {
+    --x;
+    tx += 2;
+    error += (tx - diameter);
+    }
+
+}
+}
+
 
 void actions_init()
 {

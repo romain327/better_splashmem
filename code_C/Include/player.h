@@ -5,6 +5,12 @@
 #include <stdint.h>
 typedef void* (*fptr)();
 
+enum PwrUp
+{
+    PwrUP_NoPwrUp,
+    PwrUP_TOURBILOL
+};
+
 typedef struct s_player
 {
     /* data */
@@ -13,6 +19,7 @@ typedef struct s_player
     uint8_t* data;
     uint32_t x;
     uint32_t y;
+    enum PwrUp PwrUP_id;
     int32_t credits;
     uint32_t count;
     fptr get_Action;
