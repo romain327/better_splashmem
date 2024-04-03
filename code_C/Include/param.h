@@ -22,5 +22,6 @@
 #define TELEPORT_LENGTH 8
 #define SPLASH_ZONE 3
 #define BOMB_ZONE 3
+#define TOURBILOL_COST 50
 
 #endif 

@@ -33,7 +33,6 @@ int SDLCALL watch(void *userdata, SDL_Event *event)
 /* ------------------------------------------------------------------------- */
 int main(int argc, char *argv[])
 {
-
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) != 0)
     {
         SDL_Log("Failed to initialize SDL: %s", SDL_GetError());

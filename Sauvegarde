@@ -1,0 +1,59 @@
+            switch (PwrUP_TOURBILOL_Time)
+            {
+            case 0:
+
+            world_paint_spot((p_player->x)+3, (p_player->y)+3, p_player->id);
+            world_paint_spot((p_player->x)+3, (p_player->y)-3, p_player->id);
+            world_paint_spot((p_player->x)-3, (p_player->y)-3, p_player->id);
+            world_paint_spot((p_player->x)-3, (p_player->y)+3, p_player->id);
+
+            break;
+
+            case 1:
+
+            world_paint_spot((p_player->x)+4, (p_player->y)+2, p_player->id);
+            world_paint_spot((p_player->x)+2, (p_player->y)-4, p_player->id);
+            world_paint_spot((p_player->x)-4, (p_player->y)-2, p_player->id);
+            world_paint_spot((p_player->x)-2, (p_player->y)+4, p_player->id);
+
+            break;
+
+            case 2:
+
+            world_paint_spot((p_player->x)+5, (p_player->y)+1, p_player->id);
+            world_paint_spot((p_player->x)+1, (p_player->y)-5, p_player->id);
+            world_paint_spot((p_player->x)-5, (p_player->y)-1, p_player->id);
+            world_paint_spot((p_player->x)-1, (p_player->y)+5, p_player->id);
+
+            break;
+
+            case 3:
+
+            world_paint_spot((p_player->x)+5, (p_player->y), p_player->id);
+            world_paint_spot((p_player->x), (p_player->y)-5, p_player->id);
+            world_paint_spot((p_player->x)-5, (p_player->y), p_player->id);
+            world_paint_spot((p_player->x), (p_player->y)+5, p_player->id);
+
+            break;
+
+            case 4:
+
+            world_paint_spot((p_player->x)+5, (p_player->y)-1, p_player->id);
+            world_paint_spot((p_player->x)-1, (p_player->y)-5, p_player->id);
+            world_paint_spot((p_player->x)-5, (p_player->y)+1, p_player->id);
+            world_paint_spot((p_player->x)+1, (p_player->y)+5, p_player->id);
+
+            break;
+
+            case 5:
+
+            world_paint_spot((p_player->x)+4, (p_player->y)-2, p_player->id);
+            world_paint_spot((p_player->x)-2, (p_player->y)-4, p_player->id);
+            world_paint_spot((p_player->x)-4, (p_player->y)+2, p_player->id);
+            world_paint_spot((p_player->x)+2, (p_player->y)+4, p_player->id);
+
+            break;
+
+            default:
+            break;
+            }

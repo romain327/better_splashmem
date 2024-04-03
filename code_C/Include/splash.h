@@ -1,4 +1,4 @@
-#ifndef __SPALSH__
+#ifndef __SPLASH__
 #define __SPLASH__
 
 extern SDL_Window *window;

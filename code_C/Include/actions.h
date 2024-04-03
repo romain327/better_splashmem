@@ -2,6 +2,8 @@
 #define __ACTIONS__
 
 #include "player.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
 
 enum action
 {
@@ -20,7 +22,9 @@ enum action
     ACTION_TELEPORT_D,
     ACTION_SPLASH,
     ACTION_BOMB,
-    ACTION_NUMBER
+    ACTION_NUMBER,
+    ACTION_PwrUP_TOURBILOL,
+    ACTION_PwrUP_NoPwrUp
 };
 
 void STILL(t_player *p_player);
@@ -41,6 +45,10 @@ void BOMB(t_player *p_player);
 void ROCKET(t_player *p_player);
 void GRAB(t_player *p_player);
 void STUN(t_player *p_player);
+
+void PwrUP_do(t_player *p_player);
+
+void DrawCircle(SDL_Renderer* renderer, int32_t centreX, int32_t centreY, int32_t radius);
 
 void actions_do(t_player *p_player, enum action act_id);
 void actions_init();

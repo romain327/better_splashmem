@@ -3,12 +3,13 @@
 #include <string.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
-
 #include "./Include/param.h"
 #include "./Include/world.h"
 #include "./Include/actions.h"
 #include "./Include/splash.h"
 #include "./Include/fifo_bomb.h"
+
+SDL_Rect truc_position;
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
@@ -84,11 +85,12 @@ void main_loop()
 
         render_player();
         render_map();
+
         if((players[0]->credits==0)&& (players[1]->credits==0) && (players[2]->credits==0) && (players[3]->credits==0) )
         {
             world_get_winner();
             quitting = 1;
         }
-        SDL_Delay(2);
+        SDL_Delay(20);
     }
 }
