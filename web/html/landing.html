@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Splashmem</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index_script.js"></script>
+</head>
+<body onload="refreshRanking()">
+<header class="landing_header">
+    <div class="user">
+        <p><!--[name]--></p>
+    </div>
+    <div class="menu">
+        <a class="menu_link" href="logout.php">Déconnexion</a>
+        <a class="menu_link2" href="index.php">Accueil</a>
+        <a class="menu_link" href="ranking.php">Classement</a>
+        <a class="menu_link" href="rules.php">Comment Jouer ?</a>
+        <a class="menu_link" href="install.php">Installation</a>
+    </div>
+</header>
+<main class="landing_main">
+<div class="tile1">
+    <div class="tile2">
+        <div class="landing_text">
+            <h1>Splashmem</h1>
+            <p>Bienvenue sur le site web de splashmem, un petit jeu créé par les étudiants en 1ère année de cycle ingénieur en ISIE à <a href="https://polytech.univ-tours.fr/version-francaise/navigation/cycle-ingenieur/informatique-industrielle-par-apprentissage" target="_blank">Polytech Tours</a> !</p>
+            <p>Vous trouverez de plus amples informations dans la section <a href="playing.php">Comment jouer ?</a>, vous pouvez installer le jeu pour l'essayer dans la section <a href="install.php">Installation</a>, et le code source du jeu est disponible sur <a href="https://github.com/romain327/better_splashmem" target="_blank">GitHub</a> !</p>
+        </div>
+        <div class="display_ranking" id="display_ranking">
+
+        </div>
+    </div>
+    <div class="tile3">
+        <div class="name_picker">
+            <fieldset>
+                <legend>Choisir un pseudo</legend>
+                <p>Ce formulaire vous permet de choisir un pseudo, mais il ne vous permet pas de le conserver. Si vous voulez pouvoir ajouter plusieurs librairies, veuillez créer un compte.</p>
+                <form action="index.php" method="post">
+                    <label for="name_nac">Pseudo :</label>
+                    <input type="text" id="name_nac" name="name_nac" placeholder="Nom" required>
+                    <button class="popup_button">Valider</button>
+                </form>
+                <!--[name_error]-->
+            </fieldset>
+        </div>
+        <div class="upload_file">
+            <fieldset>
+                <legend>Importer une librairie</legend>
+                <form action="index.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file">
+                    <button class="popup_button">Importer</button>
+                </form>
+                <!--[upload_msg]-->
+            </fieldset>
+        </div>
+        <div class="login">
+            <fieldset>
+                <legend>Connexion</legend>
+                <form action="index.php" method="post">
+                    <label for="name">Nom</label>
+                    <input type="text" name="name" id="name" placeholder="Nom" required>
+                    <label for="password">Mot de passe</label>
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" required>
+                    <button class="popup_button">Valider</button>
+                </form>
+                <!--[login_error_connect]-->
+            </fieldset>
+            <fieldset>
+                <legend>Créer un compte</legend>
+                <form action="index.php" method="post">
+                    <label for="name2">Nom</label>
+                    <input type="text" name="name2" id="name2" placeholder="Nom" required>
+                    <label for="password2">Mot de passe</label>
+                    <input type="password" name="password2" id="password2" placeholder="Mot de passe" required>
+                    <label for="password3">Confirmer le mot de passe</label>
+                    <input type="password" name="password3" id="password3" placeholder="Confirmer le mot de passe" required>
+                    <button class="popup_button">Valider</button>
+                </form>
+                <!--[login_error_create]-->
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div class="tile4">
+    <h2>Créer une nouvelle partie</h2>
+    <p>Si vous voulez importer une nouvelle librairie de joueur, veuillez le faire <b>avant</b> de créer une nouvelle partie.</p>
+    <form action="game_setup.php" method="post">
+        <div class="libs_checkboxes" id="libs_checkboxes">
+
+        </div>
+        <input type="submit" value="creer">
+    </form>
+</div>
+</main>
+</body>
+</html>

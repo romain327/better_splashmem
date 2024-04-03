@@ -1,4 +1,0 @@
-- créer un format de fichier pour le chargement du jeu, facilement lisible par le code C
-- implémenter le reste du formulaire de création du jeu
-- implémenter les fonctions C permettant de setup le jeu en fonction du fichier de conf, et d'écrire les résultats du jeu dans la base
-- tester le formulaire de création de jeu et d'import d'une bibliothèque.

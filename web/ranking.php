@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-$html = file_get_contents("html/libs.html");
+$html = file_get_contents("html/ranking.html");
 
 session_start();
 if(isset($_SESSION["name"])) {
