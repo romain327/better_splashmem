@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Splashmem</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colors.css">
     <script src="js/index_script.js"></script>
 </head>
 <body onload="refreshRanking()">
@@ -12,7 +13,7 @@
         <p><!--[name]--></p>
     </div>
     <div class="menu">
-        <a class="menu_link" href="logout.php">Déconnexion</a>
+        <!--[logout]-->
         <a class="menu_link2" href="index.php">Accueil</a>
         <a class="menu_link" href="ranking.php">Classement</a>
         <a class="menu_link" href="rules.php">Comment Jouer ?</a>
@@ -24,8 +25,8 @@
     <div class="tile2">
         <div class="landing_text">
             <h1>Splashmem</h1>
-            <p>Bienvenue sur le site web de splashmem, un petit jeu créé par les étudiants en 1ère année de cycle ingénieur en ISIE à <a href="https://polytech.univ-tours.fr/version-francaise/navigation/cycle-ingenieur/informatique-industrielle-par-apprentissage" target="_blank">Polytech Tours</a> !</p>
-            <p>Vous trouverez de plus amples informations dans la section <a href="playing.php">Comment jouer ?</a>, vous pouvez installer le jeu pour l'essayer dans la section <a href="install.php">Installation</a>, et le code source du jeu est disponible sur <a href="https://github.com/romain327/better_splashmem" target="_blank">GitHub</a> !</p>
+            <p>Bienvenue sur le site web de splashmem, un petit jeu créé par les étudiants en 1ère année de cycle ingénieur en ISIE à <a class="main_links" href="https://polytech.univ-tours.fr/version-francaise/navigation/cycle-ingenieur/informatique-industrielle-par-apprentissage" target="_blank">Polytech Tours</a> !</p>
+            <p>Vous trouverez de plus amples informations dans la section <a class="main_links" href="playing.php">Comment jouer ?</a>, vous pouvez installer le jeu pour l'essayer dans la section <a class="main_links" href="install.php">Installation</a>, et le code source du jeu est disponible sur <a class="main_links" href="https://github.com/romain327/better_splashmem" target="_blank">GitHub</a> !</p>
         </div>
         <div class="display_ranking" id="display_ranking">
 
@@ -91,6 +92,7 @@
         </div>
         <input type="submit" value="creer">
     </form>
+    <!--[download]-->
 </div>
 </main>
 </body>

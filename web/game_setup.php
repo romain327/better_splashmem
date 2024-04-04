@@ -1,11 +1,16 @@
 <?php
 error_reporting(E_ALL);
 require_once("functions.php");
+$html = file_get_contents("html/landing.html");
 
 session_start();
+if(isset($_SESSION["name"])) {
+    $html = str_replace("<!--[name]-->", "<p>" . $_SESSION["name"] ."</p>", $html);
+    $html = str_replace("<!--[logout]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
+}
+
 if(file_exists("game.zip")) {
-    $zip = new ZipArchive();
-    $zip->deleteName("game.zip");
+    unlink("game.zip");
 }
 
 if(file_exists("start.sh")) {
@@ -61,16 +66,10 @@ foreach ($libs as $key => $value) {
     $key = str_replace("\r", "", $key);
     $key = str_replace("\n", "", $key);
     $key = str_replace(" ", "", $key);
-    echo "./" . $dir . "/" . $key;
     $zip->addFile("./" . $dir . "/" . $key, "libs/".$key);
 }
 $zip->addFile("start.sh");
 $zip->addFile("game_config.bin");
 $zip->close();
-
-header("Content-type: application/zip");
-header("Content-Disposition: attachment; filename=$archive_file_name");
-header("Content-length: " . filesize("$archive_file_name"));
-header("Pragma: no-cache");
-header("Expires: 0");
-readfile("$archive_file_name");
+$html = str_replace("<!--[download]-->", '<a class="main_links" href="game.zip" download="game.zip">Télécharger</a>', $html);
+echo $html;

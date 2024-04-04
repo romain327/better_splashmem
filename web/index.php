@@ -39,6 +39,7 @@ elseif(isset($_POST["name"]) && isset($_POST["password"])) {
             $_SESSION["password"] = $password;
             $_SESSION["libs"] = $data[2];
             $html = str_replace("<!--[name]-->", "<p>" . $name ."</p>", $html);
+            $html = str_replace("<!--[logout]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
         }
     }
     if(!$found) {
@@ -72,12 +73,14 @@ elseif(isset($_POST["name2"]) && isset($_POST["password2"]) && isset($_POST["pas
             $_SESSION["password"] = $password;
             $_SESSION["libs"] = 0;
             $html = str_replace("<!--[name]-->", "<p>" . $name ."</p>", $html);
+            $html = str_replace("<!--[logout]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
         }
     }
 }
 else {
     if(isset($_SESSION["name"])) {
         $html = str_replace("<!--[name]-->", "<p>" . $_SESSION["name"] ."</p>", $html);
+        $html = str_replace("<!--[logout]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
     }
 }
 
