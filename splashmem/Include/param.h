@@ -12,6 +12,7 @@
 
 #define P_CREDITS 9000
 #define BOMB_COUNTER 5
+#define ROCKET_COUNTER 10
 #define MOVE_COST 1
 #define DASH_COST 10
 #define TELEPORT_COST 2
@@ -23,5 +24,6 @@
 #define SPLASH_ZONE 3
 #define BOMB_ZONE 3
 #define TOURBILOL_COST 50
+#define ROCKET_COST 10
 
 #endif 
