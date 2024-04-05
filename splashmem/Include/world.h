@@ -5,6 +5,7 @@
 #include "player.h" 
 #include "fifo_bomb.h"
 
+extern uint8_t NB_PLAYER;
 extern uint8_t mapmem[];
 extern t_player *players[];
 
@@ -13,6 +14,6 @@ void world_paint_spot(uint32_t x, uint32_t y, uint32_t num);
 void world_do_player_action(t_player* p_player);
 void world_set_players();
 void world_create_players();
-void world_get_winner();
+int world_get_winner();
 
 #endif 

@@ -12,18 +12,22 @@
 #include "./Include/fifo_bomb.h"
 #include "./Include/fifo_rocket.h"
 
-uint32_t colors[MAX_PLAYERS + 1] = {0};
+uint32_t colors[9] = {0};
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
 void init_colors(SDL_PixelFormat *format)
 {
-    colors[0] = SDL_MapRGB(format, 0x00, 0x00, 0x00);
-    colors[1] = SDL_MapRGB(format, 0xFF, 0, 0);
-    colors[2] = SDL_MapRGB(format, 0, 0xFF, 0);
-    colors[3] = SDL_MapRGB(format, 0, 0x0, 0xFF);
-    colors[4] = SDL_MapRGB(format, 0xFF, 0, 0xFF);
+    colors[0] = SDL_MapRGB(format, 0x00, 0x00, 0x00);   // Noir
+    colors[1] = SDL_MapRGB(format, 0xFF, 0x00, 0x00);   // Rouge
+    colors[2] = SDL_MapRGB(format, 0x00, 0xFF, 0x00);   // Vert
+    colors[3] = SDL_MapRGB(format, 0x00, 0x00, 0xFF);   // Bleu
+    colors[4] = SDL_MapRGB(format, 0xFF, 0x00, 0xFF);   // Magenta
+    colors[5] = SDL_MapRGB(format, 0xFF, 0xFF, 0x00);   // Jaune
+    colors[6] = SDL_MapRGB(format, 0x00, 0xFF, 0xFF);   // Cyan
+    colors[7] = SDL_MapRGB(format, 0x80, 0x80, 0x80);   // Gris
+    colors[8] = SDL_MapRGB(format, 0xFF, 0xFF, 0xFF);   // Blanc
 }
 
 /* ------------------------------------------------------------------------- */

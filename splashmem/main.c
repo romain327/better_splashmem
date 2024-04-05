@@ -40,16 +40,20 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    window = SDL_CreateWindow("SplashMem", SDL_WINDOWPOS_UNDEFINED,
-                              SDL_WINDOWPOS_UNDEFINED, WIN_SIZE, WIN_SIZE,
-                              SDL_WINDOW_SHOWN);
-    SDL_AddEventWatch(watch, NULL);
-
-    if (argc != 5)
+    if (argc < 2)
     {
         printf("Wrong argument number\n");
         return 1;
     }
+    else 
+    {
+        NB_PLAYER = argc-1;
+    }
+
+    window = SDL_CreateWindow("SplashMem", SDL_WINDOWPOS_UNDEFINED,
+                              SDL_WINDOWPOS_UNDEFINED, WIN_SIZE, WIN_SIZE,
+                              SDL_WINDOW_SHOWN);
+    SDL_AddEventWatch(watch, NULL);
 
     inits(argc, argv);
 

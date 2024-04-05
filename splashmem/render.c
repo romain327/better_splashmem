@@ -50,7 +50,7 @@ void render_player()
     rect.w = SQUARE_SIZE;
     rect.h = SQUARE_SIZE;
 
-    for (i = 0; i < MAX_PLAYERS; i++)
+    for (i = 0; i < NB_PLAYER; i++)
     {
         rect.x = players[i]->x * SQUARE_SIZE;
         rect.y = players[i]->y * SQUARE_SIZE;
@@ -80,7 +80,7 @@ void main_loop()
         // world_do_player_action(players[0]);
         decrement_counter(buffer_bomb);
         decrement_counter_r(buffer_rocket);
-        for (int i = 0; i < MAX_PLAYERS; i++)
+        for (int i = 0; i < NB_PLAYER; i++)
         {
             world_do_player_action(players[i]);
         }

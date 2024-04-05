@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+
 typedef void* (*fptr)();
 
 enum PwrUp
@@ -21,12 +22,11 @@ typedef struct s_player
     uint32_t y;
     enum PwrUp PwrUP_id;
     int32_t credits;
-    uint32_t count;
+    uint32_t score;
     fptr get_Action;
-    
 } t_player;
 
-void player_init(t_player* p_player, uint8_t num,void *handle);
+void player_init(t_player *p_player, uint8_t num, void *handle, u_int32_t nb_player);
 
 
 #endif
