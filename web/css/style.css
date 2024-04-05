@@ -134,10 +134,18 @@ button {
 }
 
 .md_code {
-    font: 1em 'Fira Code', monospace;
+    font: 1em 'Monospaced', monospace;
     border-radius: 5px;
     display: flex;
     padding: 5px 10px 5px 10px;
     margin: 10px;
     width: 20%;
+}
+
+#pwrup_gif {
+    visibility: visible;
+}
+
+.pwrup_name {
+    cursor: pointer;
 }

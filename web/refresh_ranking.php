@@ -3,22 +3,24 @@ error_reporting(E_ALL);
 require_once("functions.php");
 
 session_start();
-$file = fopen("database/score.csv", "r");
-$ranking = array();
-while(!feof($file)) {
-    $line = fgets($file);
-    $line = explode(";", $line);
-    $ranking[$line[1]] = $line[0];
-}
-fclose($file);
-krsort($ranking, SORT_NUMERIC);
-$rank = 1;
 $html_ranking = "<table><th colspan='3'>Classement</th>
-<tr><th>Place</th><th>Nom</th><th>Score</th></tr>";
-while($rank <= 10) {
-    $html_ranking .= "<tr><td>" . $rank . "</td><td>" . current($ranking) . "</td><td>" . key($ranking) . "</td></tr>";
-    next($ranking);
-    $rank++;
+<tr><th>Place</th><th>Nom</th><th>Librairie</th><th>Score</th></tr>";
+if(filesize("database/score.csv") != 0) {
+    $file = file_get_contents("database/score.csv");
+    $ranking = array();
+    $lines = explode("\n", $file);
+    foreach ($lines as $line) {
+        $data = explode(";", $line);
+        if($data[1] != "" && $data[0] != "" && $data[2] != "") {
+            $ranking[$data[1]] = array($data[0], $data[2]);
+        }
+    }
+    krsort($ranking, SORT_NUMERIC);
+    $rank = 1;
+    foreach ($ranking as $lib => $data) {
+        $html_ranking .= "<tr><td>" . $rank . "</td><td>" . $data[0] . "</td><td>" . $lib . "</td><td>" . $data[1] . "</td></tr>";
+        $rank++;
+    }
 }
 $html_ranking .= "</table>";
 echo $html_ranking;

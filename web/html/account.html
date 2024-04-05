@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Compte</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <script src="js/session_destroy_on_close.js"></script>
+</head>
+<body>
+<header class="landing_header">
+    <div class="user">
+        <p><!--[name]--></p>
+    </div>
+    <div class="menu">
+        <!--[logout]-->
+        <a class="menu_link2" href="account.php">Mon Compte</a>
+        <a class="menu_link" href="index.php">Accueil</a>
+        <a class="menu_link" href="ranking.php">Classement</a>
+        <a class="menu_link" href="rules.php">Comment Jouer ?</a>
+        <a class="menu_link" href="install.php">Installation</a>
+        <a  class="menu_link" href="CssChampionship/index.html" target="_blank">Lien innocent</a>
+    </div>
+</header>
+<main class="account_main">
+    <div class="tile1">
+        <fieldset>
+            <legend>Supprimer mes librairies</legend>
+        <form action="account.php" method="post">
+            <!--[libs]-->
+            <button class="popup_button">Supprimer</button>
+        </form>
+        </fieldset>
+    </div>
+    <div class="change_infos">
+        <fieldset>
+            <legend>Changer de pseudo ou de mot de passe</legend>
+            <form action="change_infos.php" method="post">
+                <label for="name">Nouveau pseudo :</label>
+                <input type="text" id="name" name="name" placeholder="Nom">
+                <label for="password">Nouveau mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="Mot de passe">
+                <label for="password2">Confirmer le mot de passe :</label>
+                <input type="password" id="password2" name="password2" placeholder="Mot de passe">
+                <button class="popup_button">Valider</button>
+        </fieldset>
+    </div>
+</main>
+</body>
+</html>

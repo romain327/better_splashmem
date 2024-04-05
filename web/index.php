@@ -6,7 +6,8 @@ $html = file_get_contents("html/landing.html");
 session_start();
 if(isset($_POST["name_nac"])) {
     $name = $_POST["name_nac"];
-    $lines = file("database/user.csv", "r");
+    $file = file_get_contents("database/user.csv");
+    $lines = explode("\n", $file);
     $used = false;
     foreach ($lines as $line) {
         $data = explode(";", $line);
@@ -20,7 +21,9 @@ if(isset($_POST["name_nac"])) {
         file_put_contents("database/user.csv", $line, FILE_APPEND);
         $_SESSION["name"] = $name;
         $_SESSION["libs"] = 0;
+        $_SESSION["user"] = 0;
         $html = str_replace("<!--[name]-->", "<p>" . $name . "</p>", $html);
+        $html = str_replace("<!--[account]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
     }
 }
 elseif(isset($_POST["name"]) && isset($_POST["password"])) {
@@ -38,8 +41,9 @@ elseif(isset($_POST["name"]) && isset($_POST["password"])) {
             $_SESSION["name"] = $name;
             $_SESSION["password"] = $password;
             $_SESSION["libs"] = $data[2];
+            $_SESSION["user"] = 1;
             $html = str_replace("<!--[name]-->", "<p>" . $name ."</p>", $html);
-            $html = str_replace("<!--[logout]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
+            $html = str_replace("<!--[account]-->", '<a class="menu_link" href="account.php">Mon Compte</a>', $html);
         }
     }
     if(!$found) {
@@ -72,15 +76,16 @@ elseif(isset($_POST["name2"]) && isset($_POST["password2"]) && isset($_POST["pas
             $_SESSION["name"] = $name;
             $_SESSION["password"] = $password;
             $_SESSION["libs"] = 0;
+            $_SESSION["user"] = 1;
             $html = str_replace("<!--[name]-->", "<p>" . $name ."</p>", $html);
-            $html = str_replace("<!--[logout]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
+            $html = str_replace("<!--[account]-->", '<a class="menu_link" href="account.php">Mon Compte</a>', $html);
         }
     }
 }
 else {
     if(isset($_SESSION["name"])) {
         $html = str_replace("<!--[name]-->", "<p>" . $_SESSION["name"] ."</p>", $html);
-        $html = str_replace("<!--[logout]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
+        $html = str_replace("<!--[account]-->", '<a class="menu_link" href="account.php">Mon Compte</a>', $html);
     }
 }
 
@@ -97,14 +102,20 @@ if(isset($_FILES["file"])) {
             } else {
                 if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
                     $file = file_get_contents("database/user.csv");
-                    $nb_libs = $_SESSION["libs"];
-                    $file_data = $_SESSION["name"] . ";" . $_SESSION["password"] . ";" . $_SESSION["libs"] . "\n";
-                    $_SESSION["libs"]++;
-                    $new_file_data = $_SESSION["name"] . ";" . $_SESSION["password"] . ";" . $_SESSION["libs"] . "\n";
+                    $lines = explode("\n", $file);
+                    foreach ($lines as $line) {
+                        $data = explode(";", $line);
+                        if ($data[0] == $_SESSION["name"]) {
+                            $file_data = $data[0] . ";" . $data[1] . ";" . $data[2] . "\n";
+                            $_SESSION["libs"]++;
+                            $new_file_data = $data[0] . ";" . $data[1] . ";" . $data[2] . "\n";
+                        }
+                    }
                     $file = str_replace($file_data, $new_file_data, $file);
+                    $nb_libs = $_SESSION["libs"];
                     file_put_contents("database/user.csv", $file);
                     $lib_name = rename_lib_as_player_name(basename($_FILES["file"]["name"], ".c"), $_SESSION["name"], $nb_libs);
-                    file_put_contents("database/libs.csv", $_SESSION["name"] . ";" . $lib_name, FILE_APPEND);
+                    file_put_contents("database/score.csv", $_SESSION["name"] . ";" . $lib_name.";" . "0\n", FILE_APPEND);
                     $html = str_replace("<!--[upload_msg]-->", "<p>Fichier chargé avec succès.</p>", $html);
                 } else {
                     $html = str_replace("<!--[upload_msg]-->", "<p>Erreur lors du chargement du fichier.</p>", $html);
