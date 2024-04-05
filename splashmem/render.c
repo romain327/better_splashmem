@@ -8,6 +8,7 @@
 #include "./Include/actions.h"
 #include "./Include/splash.h"
 #include "./Include/fifo_bomb.h"
+#include "./Include/fifo_rocket.h"
 
 SDL_Rect truc_position;
 
@@ -78,6 +79,7 @@ void main_loop()
         }
         // world_do_player_action(players[0]);
         decrement_counter(buffer_bomb);
+        decrement_counter_r(buffer_rocket);
         for (int i = 0; i < NB_PLAYER; i++)
         {
             world_do_player_action(players[i]);

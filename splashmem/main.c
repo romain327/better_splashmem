@@ -10,6 +10,7 @@
 #include "./Include/actions.h"
 #include "./Include/splash.h"
 #include "./Include/fifo_bomb.h"
+#include "./Include/fifo_rocket.h"
 
 int quitting = 0;
 SDL_Window *window = NULL;

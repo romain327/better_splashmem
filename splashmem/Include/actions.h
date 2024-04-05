@@ -24,7 +24,8 @@ enum action
     ACTION_BOMB,
     ACTION_NUMBER,
     ACTION_PwrUP_TOURBILOL,
-    ACTION_PwrUP_NoPwrUp
+    ACTION_PwrUP_NoPwrUp,
+    ACTION_ROCKET
 };
 
 void STILL(t_player *p_player);

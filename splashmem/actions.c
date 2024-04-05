@@ -6,6 +6,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 #include "./Include/splash.h"
+#include "./Include/fifo_rocket.h"
 
 // world_paint_spot(uint32_t x, uint32_t y, uint32_t num)
 
@@ -119,6 +120,14 @@ void actions_do(t_player *p_player, enum action act_id)
         {
             add_fifo_bomb_elements(buffer_bomb, BOMB_COUNTER, p_player->x, p_player->y, p_player->id);
             p_player->credits = p_player->credits - BOMB_COST;
+        }
+        break;
+    
+    case ACTION_ROCKET:
+        if (p_player->credits >= ROCKET_COST)
+        {
+            add_fifo_rocket_elements(buffer_rocket, ROCKET_COUNTER, p_player->x, p_player->y, p_player->id, p_player->credits);
+            p_player->credits = p_player->credits - ROCKET_COST;
         }
         break;
 

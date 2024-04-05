@@ -10,6 +10,7 @@
 #include "./Include/actions.h"
 #include "./Include/splash.h"
 #include "./Include/fifo_bomb.h"
+#include "./Include/fifo_rocket.h"
 
 uint32_t colors[9] = {0};
 
@@ -43,6 +44,8 @@ void inits(int argc, char *argv[])
     world_create_players(argv);
     buffer_bomb = (fifo_bomb *)malloc(sizeof(fifo_bomb));
     buffer_bomb->first = NULL;
+    buffer_rocket = (fifo_rocket *)malloc(sizeof(fifo_rocket));
+    buffer_rocket->first_r = NULL;
 
     printf("inits done\n");
 }

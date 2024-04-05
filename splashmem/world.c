@@ -6,6 +6,7 @@
 #include "./Include/player.h"
 #include "./Include/actions.h"
 #include "./Include/fifo_bomb.h"
+#include "./Include/fifo_rocket.h"
 
 /* !!!!!!!!!!!!!!!! MAP !!!!!!!!!!!!!!!!!!!!! */
 uint8_t mapmem[MAP_SIZE * MAP_SIZE] = {0};
@@ -16,6 +17,7 @@ uint8_t NB_PLAYER;
 t_player *players[8] = {0};
 
 fifo_bomb *buffer_bomb;
+fifo_rocket * buffer_rocket;
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
@@ -42,12 +44,18 @@ void world_do_player_action(t_player *p_player)
 {
     // ici du code a qui fonctionne
     t_bomb bombInfo;
+    t_rocket rocketInfo;
     actions_do(p_player, (enum action)p_player->get_Action());
     bombInfo = Check_bomb_time_out(buffer_bomb);
+    rocketInfo = Check_rocket_time_out(buffer_rocket);
     // printf("Bomb info:\nbombState:%u\nID_players:%u\nX_bomb:%u\nY_bomb:%u\n\n",bombInfo.bombState,bombInfo.ID_players,bombInfo.X_bomb,bombInfo.y_bomb);
     if (bombInfo.bombState == 1)
     {
         Splash(bombInfo.X_bomb, bombInfo.y_bomb, bombInfo.ID_players, BOMB_ZONE);
+    }
+    if (rocketInfo.rocketState == 1)
+    {
+        Splash(rocketInfo.X_rocket, rocketInfo.y_rocket, rocketInfo.ID_players_r, BOMB_ZONE);
     }
 
     // printf("pl_id:%d x:%u , y:%u\n",i,players[0]->x,players[0]->y);
