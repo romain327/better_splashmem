@@ -26,7 +26,7 @@ foreach ($_POST as $key => $value) {
     $libs[$value] = null;
 }
 $keys = array_keys($libs);
-$file = fopen("database/libs.csv", "r");
+$file = fopen("database/score.csv", "r");
 foreach ($libs as $key => $value) {
     while(!feof($file)) {
         $line = fgets($file);

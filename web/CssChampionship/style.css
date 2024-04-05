@@ -1,0 +1,241 @@
+/* À vous de jouer :) */
+
+body {
+    margin: 0;
+    /*transform: rotate(180deg);*/
+    background-color: yellow;
+    resize: both;
+}
+body  :div{
+    background-color: darkorchid;
+}
+
+figure{
+    filter: blur(5px);
+        filter: hue-rotate(90deg);
+        filter: drop-shadow(16px 16px 20px red) invert(75%);
+}
+image{
+    filter: blur(5px);
+}
+img{
+    filter: blur(5px);
+}
+
+img {
+    resize: both;
+    width: 50%;
+    height: 50;
+    /**
+    height: 10px;
+    width: 10000px;**/
+}
+
+.cssChampionship {
+    filter: drop-shadow(16px 16px 20px red);
+    display: block;
+    margin: 10px auto;
+    width: 20%;
+      animation-name: headeranimation;
+  animation-duration: 4s;
+    animation-iteration-count: infinite;
+  animation: rotate 1s forwards alternate linear;
+    filter: blur(0px);
+
+}
+
+h1 {
+        font-family: Trattatello, fantasy;
+
+    color: deeppink;
+}
+h2{
+        font-family: Trattatello, fantasy;
+
+   animation: .5s linear 1s infinite alternate slidein;
+    color: aqua;
+    filter: drop-shadow(16px 16px 20px red) invert(75%);
+}
+
+@keyframes beginfoto {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.beginfoto {
+  animation: rotating 2s linear infinite;
+}
+.indexphoto{
+    width: 50%;
+    height: 50%:
+}
+
+header{
+    background-color: gold;
+}
+
+@keyframes presentationcolor {
+  from {background-color: hotpink;}
+  to {background-color: gold;}
+}
+
+/* The element to apply the animation to */
+.presentation {
+    background-color: gold;
+  animation-name: presentationcolor;
+  animation-duration: 4s;
+}
+
+/* The animation code */
+@keyframes headeranimation {
+  0%   {background-color:deeppink; left:0px; top:0px;}
+  25%  {background-color:gold; left:200px; top:0px;}
+  50%  {background-color:deepskyblue; left:200px; top:200px;}
+  75%  {background-color:greenyellow; left:0px; top:200px;}
+  100% {background-color:deeppink; left:0px; top:0px;}
+}
+@keyframes backgroundheaderanimation {
+  0%   {background-color:gold; left:0px; top:0px;}
+  25%  {background-color:deeppink; left:200px; top:0px;}
+  50%  {background-color:greenyellow; left:200px; top:200px;}
+  75%  {background-color:deepskyblue; left:0px; top:200px;}
+  100% {background-color:gold; left:0px; top:0px;}
+}
+
+@keyframes pageselectorbackground {
+  0%   {background-color:white; left:0px; top:0px;}
+  50%  {background-color:black; left:200px; top:200px;}
+  100% {background-color:white; left:0px; top:0px;}
+}
+@keyframes pageselectortext{
+  0%   {color:black; left:0px; top:0px;}
+  50%  {color:white; left:200px; top:200px;}
+  100% {color:black; left:0px; top:0px;}
+}
+@keyframes figanimation{
+  0%   {color:black; left:0px; top:0px;}
+  10%  {color:yellow; left:200px; top:200px;}
+      20%   {color:black; left:0px; top:0px;}
+  30%  {color:yellow; left:200px; top:200px;}
+      40%   {color:black; left:0px; top:0px;}
+  50%  {color:yellow; left:200px; top:200px;}
+      60%   {color:black; left:0px; top:0px;}
+  70%  {color:yellow; left:200px; top:200px;}
+      80%   {color:black; left:0px; top:0px;}
+  90%  {color:yellow; left:200px; top:200px;}
+      90%  {color:black; left:200px; top:200px;}
+
+}
+
+
+
+header{
+    animation-name: backgroundheaderanimation;
+    animation-duration: 4s;
+        animation-iteration-count: infinite;
+}
+p{
+    font-family: Trattatello, fantasy;
+}
+
+
+.pageSelection{
+    text-align: center;
+        animation-name: pageselectorbackground;
+    animation-duration: 4s;
+        word-spacing: 300px;
+
+        animation-iteration-count: infinite;
+}
+.pageSelection a{
+    font-family: "OCR A Std", monospace;
+        animation-name: pageselectortext;
+    animation-duration: 4s;
+        animation-iteration-count: infinite;
+      letter-spacing: 20px;
+}
+
+input{
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+    animation-name: backgroundheaderanimation;
+}
+
+label{
+    animation-name: pageselectortext;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+figcaption{
+    animation-name: figanimation;
+    animation-duration: 0.1s;
+    
+    animation-iteration-count: infinite;
+    
+}
+.reponse{
+    font-family: "Brush Script MT", "Brush Script Std", cursive	;
+    font-size: 200%;
+}
+.question{
+    letter-spacing: -5px;
+    font-family: "Bradley Hand", "cursive";
+}
+
+figure:hover {/**
+    filter: brightness(0) saturate(100%) invert(53%) sepia(100%) saturate(7499%) hue-rotate(315deg) brightness(100%) contrast(102%)**/
+    filter: blur(0px);
+    
+    ;
+}
+img:hover {
+    /**
+filter: brightness(0) saturate(100%) invert(53%) sepia(100%) saturate(7499%) hue-rotate(315deg) brightness(100%) contrast(102%)**/
+    filter: blur(0px);
+    ;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+  
+  100% {
+    transform: rotate(360deg)
+  }
+  
+}
+.cssChampionship:hover{
+    filter: hue-rotate(90deg);
+
+}
+
+p{
+    filter: drop-shadow(16px 16px 20px red);
+}
+
+form{
+        background-color: yellow;
+  animation-name: headeranimation;
+  animation-duration: 4s;
+        animation-iteration-count: infinite;
+
+}
+input[type=submit] {
+  border: none;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+    animation: .5s linear 1s infinite alternate slidein;
+}
+*{
+    cursor: crosshair;
+}
+form{
+      font-family: 'Courier New', monospace;
+
+}

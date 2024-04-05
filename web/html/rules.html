@@ -5,6 +5,8 @@
     <title>Règles</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/colors.css">
+    <script src="js/session_destroy_on_close.js"></script>
+    <script src="js/hide_gif.js"></script>
 </head>
 <body>
 <header class="landing_header">
@@ -12,11 +14,12 @@
         <!--[name]-->
     </div>
     <div class="menu">
-        <!--[logout]-->
+        <!--[account]-->
         <a class="menu_link" href="index.php">Accueil</a>
         <a class="menu_link" href="ranking.php">Classement</a>
         <a class="menu_link2" href="rules.php">Comment Jouer ?</a>
         <a class="menu_link" href="install.php">Installation</a>
+        <a  class="menu_link" href="CssChampionship/index.html" target="_blank">Lien innocent</a>
     </div>
 </header>
 <main class="rules_main">
@@ -26,6 +29,9 @@
     <h2>
         Liste et coût des mouvements
     </h2>
+    <ul>
+        <li class="move_list"><div class="move" onclick="hide_pwrup()"><span class="pwrup_name">Move up into Power up Tornado</span></div><img src="img/gif/pwrup.gif" alt="gif tourbillion" id="pwrup_gif"></li>
+    </ul>
 </main>
 </body>
 </html>
