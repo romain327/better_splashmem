@@ -80,9 +80,30 @@ void world_get_winner()
         players[id]->score = 0;
         for (int j = 0; j < MAP_SIZE * MAP_SIZE; j++)
         {
-            if (mapmem[j] == players[id]->id){
+            if (mapmem[j] == id){
                 players[id]->score++;
             }
         }
     }
+}
+
+u_int64_t world_get_map(t_player *p_player)
+{
+    u_int64_t map[25][25];
+    u_int32_t compteur_i = 0;
+    u_int32_t compteur_j = 0;
+    for (int i = (p_player->x)-12; i<(p_player->x)+12; i++)
+    {
+        if (i<0){i+=MAP_SIZE;}
+        if (i>MAP_SIZE){i-=MAP_SIZE;}
+        compteur_i++;
+        for (int j = (p_player->y)-12; j<(p_player->y)+12; j++)
+        {
+            compteur_j++;
+            if (j<0){j+=MAP_SIZE;}
+            if (j>MAP_SIZE){j-=MAP_SIZE;}
+            map[compteur_i][compteur_j]=mapmem[i*MAP_SIZE+j];
+        }
+    }
+    return map;
 }
