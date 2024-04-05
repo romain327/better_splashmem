@@ -22,7 +22,7 @@ typedef struct s_player
     uint32_t y;
     enum PwrUp PwrUP_id;
     int32_t credits;
-    uint32_t count;
+    uint32_t score;
     fptr get_Action;
 } t_player;
 

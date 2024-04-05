@@ -73,25 +73,16 @@ void world_paint_spot(uint32_t x, uint32_t y, uint32_t num)
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
-int world_get_winner()
+void world_get_winner()
 {
     for (int id = 0; id < NB_PLAYER; id++)
     {
+        players[id]->score = 0;
         for (int j = 0; j < MAP_SIZE * MAP_SIZE; j++)
         {
             if (mapmem[j] == players[id]->id){
-                players[id]->count++;
+                players[id]->score++;
             }
         }
     }
-
-    uint32_t winner = 1;
-    for (int id = 1; id < NB_PLAYER; id++)
-    {
-        if (players[id]->count > players[id-1]->count)
-        {
-            winner = id+1;
-        }
-    }
-    return winner;
 }
