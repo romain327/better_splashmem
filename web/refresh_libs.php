@@ -3,17 +3,17 @@ error_reporting(E_ALL);
 require_once("functions.php");
 
 session_start();
-if(filesize("database/score.csv") == 0) {
+if(filesize("database/libs.csv") == 0) {
     $html_libs = "<p>Aucune librairie disponible.</p>";
 }
 else {
-    $file = file_get_contents("database/score.csv");
+    $file = file_get_contents("database/libs.csv");
     $libs = array();
     $html_libs = "";
     $lines = explode("\n", $file);
     foreach ($lines as $line) {
-        $data = explode(";", $line);
-        if($data[1] != "" && $data[0] != "") {
+        if($line != "") {
+            $data = explode(";", $line);
             $libs[$data[1]] = $data[0];
         }
     }

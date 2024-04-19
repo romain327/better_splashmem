@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 require_once("functions.php");
 
 session_start();
-$html_ranking = "<table><th colspan='3'>Classement</th>
+$html_ranking = "<table><th class='title' colspan='3'>Classement</th>
 <tr><th>Place</th><th>Nom</th><th>Librairie</th><th>Score</th></tr>";
 if(filesize("database/score.csv") != 0) {
     $file = file_get_contents("database/score.csv");

@@ -1,29 +1,16 @@
 <?php
 error_reporting(E_ALL);
+require_once("functions.php");
+$css = file_get_contents("css/colors.css");
 
 session_start();
-if($_SESSION["user"] == 0) {
-    $file = file_get_contents("database/user.csv");
-    $lines = explode("\n", $file);
-    foreach ($lines as $key => $line) {
-        $data = explode(";", $line);
-        if($data[0] == $_SESSION["name"]) {
-            unset($lines[$key]);
-        }
-    }
-    $file = implode("\n", $lines);
-    file_put_contents("database/user.csv", $file);
 
-    $file = file_get_contents("database/score.csv");
-    $lines = explode("\n", $file);
-    foreach ($lines as $key => $line) {
-        $data = explode(";", $line);
-        if($data[0] == $_SESSION["name"]) {
-            unset($lines[$key]);
-        }
-    }
-    $file = implode("\n", $lines);
-    file_put_contents("database/score.csv", $file);
-}
-session_destroy();
+$color = file_get_contents("database/color.csv");
+$color = str_replace("\n", "", $color);
+$new_color = get_color();
+$css = str_replace($color, $new_color, $css);
+file_put_contents("css/colors.css", $css);
+file_put_contents("database/color.csv", $new_color);
+
+logout();
 header("Location: index.php");

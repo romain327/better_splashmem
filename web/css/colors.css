@@ -1,18 +1,25 @@
 body {
-    color: #00ff7f;
+    color: #ffffff;
     background-color: #0f0a20;
 }
 
 .landing_header {
-    background-color: #0f0a20;
-    border-bottom: solid 2px #00ff7f;
+    background-color: #181818;
+}
+
+.install_main_container {
+    background-color: #181818;
 }
 
 .main_links {
-    color: #5d3bde;
+    color: #00ff7f;
 }
 
 .main_links:hover {
+    color: #ffffff;
+}
+
+.title {
     color: #00ff7f;
 }
 
@@ -21,15 +28,15 @@ fieldset {
 }
 
 .menu_link {
-    color: #00ff7f;
+    color: #ffffff;
 }
 
 .menu_link:hover {
-    color: #5d3bde;
+    color: #00ff7f;
 }
 
 .menu_link2 {
-    color: #5d3bde;
+    color: #00ff7f;
 }
 
 input {
@@ -38,19 +45,19 @@ input {
     color: #00ff7f;
 }
 
-button {
+.button {
     border: 2px solid #00ff7f;
     background-color: #0f0a20;
     color: #00ff7f;
 }
 
-button:hover {
+.button:hover {
     background-color: #00ff7f;
     color: #0f0a20;
 }
 
 .md_code {
-    background-color: #181818;
+    background-color: #0f0a20;
     color: #ffffff;
 }
 
@@ -59,5 +66,30 @@ button:hover {
 }
 
 .pwrup_name:hover {
-    color: #5d3bde;
+    color: #ffffff;
+}
+
+.landing_text {
+    background-color: #181918;
+}
+
+.display_ranking {
+    background-color: #181918;
+
+}
+
+.name_picker {
+    background-color: #181918;
+}
+
+.upload_file {
+    background-color: #181918;
+}
+
+.login {
+    background-color: #181918;
+}
+
+.tile4 {
+    background-color: #181918;
 }
