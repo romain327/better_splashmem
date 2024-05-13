@@ -1,0 +1,99 @@
+body {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.landing_header {
+    background-color: #d0badc;
+}
+
+.install_main_container {
+    background-color: #d0badc;
+}
+
+.main_links {
+    color: #ee82ee;
+}
+
+.main_links:hover {
+    color: #000000;
+}
+
+.title {
+    color: #ee82ee;
+}
+
+fieldset {
+    border: solid 2px #ee82ee;
+}
+
+.menu_link {
+    color: #000000;
+}
+
+.menu_link:hover {
+    color: #ee82ee;
+}
+
+.menu_link2 {
+    color: #ee82ee;
+}
+
+input {
+    border: 2px solid #ee82ee;
+    background-color: #ffffff;
+    color: #ee82ee;
+}
+
+.button {
+    border: 2px solid #ee82ee;
+    background-color: #ffffff;
+    color: #ee82ee;
+}
+
+.button:hover {
+    background-color: #ee82ee;
+    color: #ffffff;
+}
+
+.md_code {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.pwrup_name {
+    color: #ee82ee;
+}
+
+.pwrup_name:hover {
+    color: #000000;
+}
+
+.landing_text {
+    background-color: #d0badc;
+}
+
+.display_ranking {
+    background-color: #d0badc;
+
+}
+
+.name_picker {
+    background-color: #d0badc;
+}
+
+.upload_file {
+    background-color: #d0badc;
+}
+
+.login {
+    background-color: #d0badc;
+}
+
+.tile4 {
+    background-color: #d0badc;
+}
+
+.menu_icon {
+    border: 1px solid #d0badc;
+}

@@ -2,15 +2,15 @@
 error_reporting(E_ALL);
 require_once("functions.php");
 $html =file_get_contents("html/account.html");
-$css = file_get_contents("css/colors.css");
+$css = file_get_contents("css/light.css");
 
 session_start();
 
 $color = file_get_contents("database/color.csv");
 $color = str_replace("\n", "", $color);
-$new_color = get_color();
+$new_color = get_color($_SESSION["mode"]);
 $css = str_replace($color, $new_color, $css);
-file_put_contents("css/colors.css", $css);
+file_put_contents("css/light.css", $css);
 file_put_contents("database/color.csv", $new_color);
 
 $old_name = $_SESSION["name"];

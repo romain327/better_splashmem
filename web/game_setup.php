@@ -41,12 +41,12 @@ fclose($file);
 $file = fopen("game_config.bin", "w");
 $file2 = fopen("start.sh", "w");
 fwrite($file2, "#!/bin/bash\n");
-fwrite($file2, "cp libs/*.so /opt/splashmem/libs\n");
-$file2_content = "/opt/splashmem/splash ";
+fwrite($file2, "diretory=$(dirname -- $(readlink -fn -- \"$0\"))\n");
+$file2_content = "./opt/splashmem/splash "."$"."directory/game_config.bin";
 foreach($libs as $key => $value) {
     $fill_name = str_pad($value, 30, "\0");
     $fill_lib = str_pad($key, 30, "\0");
-    $file2_content .= "libs/".$key." ";
+    $file2_content .= " $"."directory/libs/".$key;
     fwrite($file, $fill_name . $fill_lib);
 }
 $file2_content = str_replace("\n", "", $file2_content);

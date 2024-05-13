@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     refreshLibs();
 });
 
-setInterval(refreshLibs, 5000)
+setInterval(refreshLibs, 20000)
 
 function refreshLibs() {
     var xhr = new XMLHttpRequest();

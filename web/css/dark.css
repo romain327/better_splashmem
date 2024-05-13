@@ -1,0 +1,99 @@
+body {
+    color: #ffffff;
+    background-color: #0f0a20;
+}
+
+.landing_header {
+    background-color: #181918;
+}
+
+.install_main_container {
+    background-color: #181918;
+}
+
+.main_links {
+    color: #ee82ee;
+}
+
+.main_links:hover {
+    color: #ffffff;
+}
+
+.title {
+    color: #ee82ee;
+}
+
+fieldset {
+    border: solid 2px #ee82ee;
+}
+
+.menu_link {
+    color: #ffffff;
+}
+
+.menu_link:hover {
+    color: #ee82ee;
+}
+
+.menu_link2 {
+    color: #ee82ee;
+}
+
+input {
+    border: 2px solid #ee82ee;
+    background-color: #0f0a20;
+    color: #ee82ee;
+}
+
+.button {
+    border: 2px solid #ee82ee;
+    background-color: #0f0a20;
+    color: #ee82ee;
+}
+
+.button:hover {
+    background-color: #ee82ee;
+    color: #0f0a20;
+}
+
+.md_code {
+    background-color: #0f0a20;
+    color: #ffffff;
+}
+
+.pwrup_name {
+    color: #ee82ee;
+}
+
+.pwrup_name:hover {
+    color: #ffffff;
+}
+
+.landing_text {
+    background-color: #181918;
+}
+
+.display_ranking {
+    background-color: #181918;
+
+}
+
+.name_picker {
+    background-color: #181918;
+}
+
+.upload_file {
+    background-color: #181918;
+}
+
+.login {
+    background-color: #181918;
+}
+
+.tile4 {
+    background-color: #181918;
+}
+
+.menu_icon {
+    border: 1px solid #181918;
+}

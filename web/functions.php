@@ -94,9 +94,19 @@ function overwrite_lib_version($pseudo) {
     file_put_contents("database/user.csv", $lines);
 }
 
-function get_color() {
-    $colors = array("00ff7f", "00ffff", "ee82ee", "5d11f3");
+function get_color($mode) {
+    if($mode == "dark.css") {
+        $colors = array("00ff7f", "00ffff", "ee82ee");
+    }
+    else {
+        $colors = array("5d11f3", "380a18");
+    }
     $len = count($colors);
-    $color = $colors[rand(0, $len - 1)];
-    return $color;
+    return $colors[rand(0, $len - 1)];
+}
+
+function change_mode($code, $old_mode, $new_mode, $old_icon, $new_icon, $old_background, $new_background) {
+    $code = str_replace($old_mode, $new_mode, $code);
+    $code = str_replace($old_icon, $new_icon, $code);
+    return str_replace($old_background, $new_background, $code);
 }

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Mon Compte</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/[css]">
     <script src="js/session_destroy_on_close.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 </head>
 <body>
 <video autoplay muted loop id="background_video">
-    <source src="assets/img/background.mp4" type="video/mp4">
+    <source src="assets/img/[background]" type="video/mp4">
 </video>
 <header class="landing_header">
     <div class="user">
@@ -23,7 +23,8 @@
         <a class="menu_link" href="ranking.php">Classement</a>
         <a class="menu_link" href="rules.php">Comment Jouer ?</a>
         <a class="menu_link" href="install.php">Installation</a>
-        <a  class="menu_link" href="CssChampionship/index.html" target="_blank">Lien innocent</a>
+        <a class="menu_link" href="CssChampionship/index.html" target="_blank">Lien innocent</a>
+        <a href="change_mode.php?page=5"><img src="assets/img/functional/[icon]" alt="mode_icon" class="mode_icon"></a>
     </div>
 </header>
 <main class="account_main">
@@ -48,8 +49,16 @@
                 <label for="password2">Confirmer le mot de passe :</label>
                 <input type="password" id="password2" name="password2" placeholder="Mot de passe">
                 <button class="popup_button">Valider</button>
+            </form>
         </fieldset>
     </div>
+    <div class="delete_account">
+        <fieldset>
+            <legend>Supprimer mon compte</legend>
+            <form action="delete_account.php" method="post">
+                <button class="popup_button">Supprimer</button>
+            </form>
+        </fieldset>
 </main>
 </body>
 </html>

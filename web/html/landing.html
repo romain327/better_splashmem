@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Splashmem</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/[css]">
     <script src="js/index_script.js"></script>
     <script src="js/session_destroy_on_close.js"></script>
     <link rel="icon" type="image/x-icon" href="img/paint.ico">
 </head>
 <body onload="refreshRanking()">
 <video autoplay muted loop id="background_video">
-    <source src="assets/img/background.mp4" type="video/mp4">
+    <source src="assets/img/[background]" type="video/mp4">
 </video>
 <header class="landing_header">
     <div class="user">
@@ -23,8 +23,8 @@
         <a class="menu_link" href="ranking.php">Classement</a>
         <a class="menu_link" href="rules.php">Comment Jouer ?</a>
         <a class="menu_link" href="install.php">Installation</a>
-        <a  class="menu_link" href="CssChampionship/index.html" target="_blank">Lien innocent</a>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+        <a class="menu_link" href="CssChampionship/index.html" target="_blank">Lien innocent</a>
+        <a href="change_mode.php?page=1"><img src="assets/img/functional/[icon]" alt="mode_icon" class="mode_icon"></a>
     </div>
 </header>
 <main class="landing_main">
@@ -33,7 +33,7 @@
         <div class="landing_text">
             <h1 class="title">Splashmem</h1>
             <p>Bienvenue sur le site web de splashmem, un petit jeu créé par les étudiants en 1ère année de cycle ingénieur en ISIE à <a class="main_links" href="https://polytech.univ-tours.fr/version-francaise/navigation/cycle-ingenieur/informatique-industrielle-par-apprentissage" target="_blank">Polytech Tours</a> !</p>
-            <p>Vous trouverez de plus amples informations dans la section <a class="main_links" href="playing.php">Comment jouer ?</a>, vous pouvez installer le jeu pour l'essayer dans la section <a class="main_links" href="install.php">Installation</a>, et le code source du jeu est disponible sur <a class="main_links" href="https://github.com/romain327/better_splashmem" target="_blank">GitHub</a> !</p>
+            <p>Vous trouverez de plus amples informations dans la section <a class="main_links" href="rules.php">Comment jouer ?</a>, vous trouverez les instructions d'installation du jeu dans la section <a class="main_links" href="install.php">Installation</a>, et le code source du jeu est disponible sur <a class="main_links" href="https://github.com/romain327/better_splashmem" target="_blank">GitHub</a> !</p>
         </div>
         <div class="display_ranking" id="display_ranking">
 
@@ -46,7 +46,7 @@
                 <p>Ce formulaire vous permet de choisir un pseudo, mais il ne vous permet pas de le conserver. Si vous voulez pouvoir ajouter plusieurs librairies, veuillez créer un compte.</p>
                 <form action="connection.php" method="post">
                     <label for="name_nac">Pseudo :</label>
-                    <input type="text" id="name_nac" name="name_nac" placeholder="Pseudo" pattern="^[a-zA-Z0-9-]{1,24}$" required>
+                    <input type="text" id="name_nac" name="name_nac" placeholder="Pseudo" pattern="^[a-zA-Z0-9-]{1,25}$" required>
                     <button class="button">Valider</button>
                 </form>
                 <!--[name_error]-->
@@ -69,7 +69,7 @@
                     <label for="name">Nom :</label>
                     <input type="text" name="name" id="name" placeholder="Pseudo" required>
                     <label for="password">Mot de passe :</label>
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" pattern="^[a-zA-Z0-9-]{1,24}$" required>
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" pattern="^[a-zA-Z0-9-]{1,25}$" required>
                     <button class="button">Valider</button>
                 </form>
                 <!--[login_error_connect]-->
@@ -78,7 +78,7 @@
                 <legend>Créer un compte</legend>
                 <form action="connection.php" method="post">
                     <label for="name2">Nom :</label>
-                    <input type="text" name="name2" id="name2" placeholder="Pseudo" pattern="^[a-zA-Z0-9-]{1,24}$" required>
+                    <input type="text" name="name2" id="name2" placeholder="Pseudo" pattern="^[a-zA-Z0-9-]{1,25}$" required>
                     <label for="password2">Mot de passe :</label>
                     <input type="password" name="password2" id="password2" placeholder="Mot de passe" required>
                     <label for="password3">Confirmer le mot de passe :</label>
