@@ -70,7 +70,7 @@
 	Le dossier src contient tous les fichiers sources du jeu.\\
 	
 	\subsection{Fonctionnement du jeu}
-	Le code du jeu se découpe en trois phases : une phase d'initialisation, puis une boucle qui déroule le jeu et enfin une phase qui vient après la fin du jeu. C est un language procédural mais le jeu a été pensé en termes d'interactions entre des objets, on retrouve donc des structures et fichiers C permettant de mimer le concept de classes :\\
+	Le code du jeu se découpe en trois phases : une phase d'initialisation, puis une boucle qui déroule le jeu et enfin une phase qui vient après la fin du jeu. C est un langage procédural mais le jeu a été pensé en termes d'interactions entre des objets, on retrouve donc des structures et fichiers C permettant de mimer le concept de classes :\\
 	\begin{itemize}[label=$-$]
 		\item inits.c contient les méthodes d'initialisation\\
 		\item action.c contient le code des actions effectuées par les joueurs\\
@@ -83,8 +83,25 @@
 	La phase d'initialisation est assurée par plusieurs fonctions d'initialisation, qui vont venir mettre en place la fenêtre, le renderer, la map, les joueurs, etc. Ces fonctions d'initialisation se situent principalement dans les fichiers inits.c et entities.c.\\
 	
 	\subsubsection{phase de jeu}
+	La phase de jeu se décompose en 3 parties :
+	\paragraph{Réalisation des actions}
+	Chaque joueur va effectuer une action de sa librairie, qui lui permet donc de se déplacer à chaque tour.
+	
+	\paragraph{Rendu des images}
+	Tous les joueurs sont associés à des images qui se trouvent dans assets/images. Cela permet d'avoir des animations pour les coups spéciaux, et une impression de mouvement pour les déplacements.
+	
+	\paragraph{Gestion des effets sonores}
+	Splashmem tourne avec une musique de fond (initialisée dans init\_wav). Les sons servent aussi a supporter les animations des coups spéciaux et de certains mouvements comme le dash ou le teleport.
 	
 	\subsubsection{phase de fin}
+	Le jeu se termine lorsque :
+	\begin{itemize}
+		\item La touche q est enfoncée\\
+		\item Les crédits de tous les joueurs tombent à 0.\\
+	\end{itemize}
+
+	Lorsque le jeu est fini, un fichier results.csv est généré, contenant le pseudo du joueur ayant initié la partie, ainsi que les noms et librairies de chaque joueurs, associés au score effectué.\\
+	Ce fichier est ensuite envoyé au serveur en PUT par la fonction send\_results.\\
 	
 	\section{Site web}
 	\subsection{Technologies utilisées}

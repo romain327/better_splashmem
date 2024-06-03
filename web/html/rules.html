@@ -40,12 +40,25 @@
         <li class="md_code">./start.sh</li>
     </ul>
     </div>
+    <div class="launch game">
     <h2>
-        Liste et coût des mouvements
+        Liste des mouvements et coûts
     </h2>
     <ul>
         <li class="move_list"><div class="move" onclick="hide_pwrup()"><span class="pwrup_name">Move up into Power up Tornado</span></div><img src="assets/img/gif/pwrup.gif" alt="gif tourbillion" id="pwrup_gif"></li>
+        <li class="move_list">ACTION_MOVE_x, x € {L, R, U, D}, Coût : 1 crédit ; se déplace dans la direction donnée</li>
+        <li class="move_list">ACTION_DASH_x, x € {L, R, U, D}, Coût : 8 crédits ; se déplace de 8 cases dans la direction donnée en coloriant les 8 cases</li>
+        <li class="move_list">ACTION_TELEPORT_x, x € {L, R, U, D}, Coût : 2 crédits ; se téléporte de 8 cases dans la direction donnée</li>
+        <li class="move_list">ACTION_SPLASH, Coût : 9 crédits ; coliorie toutes les cases autour du joueur dans un rayon de 1</li>
+        <li class="move_list">ACTION_BOMB, Coût : 9 crédits ; pose une bombe qui explose en 5 tours selon le même motif que ACTION_SPLASH</li>
+        <li class="move_list">ACTION_ULTIME, Coût : tous les crédits restants</li>
     </ul>
+        <p>Un template de librairie est à télécharger <a class="main_links" href="files/lib_template.c" download="lib_template.c">ici</a>.</p>
+        <p>Une fois votre librairie écrite, vous pouvez la compiler avec la commande suivante :</p>
+        <ul>
+            <li class="md_code">gcc -o lib.so -shared -fPIC lib.c</li>
+        </ul>
+    </div>
 </main>
 </body>
 </html>
