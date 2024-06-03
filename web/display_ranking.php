@@ -10,13 +10,13 @@ if(filesize("database/score.csv") != 0) {
     while (!feof($file)) {
         $line = fgets($file);
         $line = explode(";", $line);
-        $ranking[$line[1]] = array($line[0], $line[2]);
+        $ranking[$line[1]] = array($line[0], $line[2], $line[3]);
     }
     fclose($file);
     krsort($ranking, SORT_NUMERIC);
     $rank = 1;
     foreach ($ranking as $lib => $data) {
-        $html_ranking .= "<tr><td>" . $rank . "</td><td>" . $data[0] . "</td><td>" . $lib . "</td><td>" . $data[1] . "</td></tr>";
+        $html_ranking .= "<tr><td>" . $rank . "</td><td>" . $data[0] . "</td><td>" . $lib . "</td><td>" . $data[1] . "</td><td>" . $data[2] . "</td></tr>";
         $rank++;
     }
 }

@@ -4,6 +4,8 @@ require_once("functions.php");
 $html = file_get_contents("html/landing.html");
 
 session_start();
+$html = change_mode($html, "[css]", $_SESSION["mode"], "[icon]", $_SESSION["icon"], "[background]", $_SESSION["background"]);
+
 if(isset($_SESSION["name"])) {
     $html = str_replace("<!--[name]-->", "<p>" . $_SESSION["name"] ."</p>", $html);
     $html = str_replace("<!--[logout]-->", '<a class="menu_link" href="logout.php">Déconnexion</a>', $html);
@@ -23,10 +25,12 @@ if(file_exists("game_config.bin")) {
 
 $libs = array();
 foreach ($_POST as $key => $value) {
+    $value = str_replace("\r", "", $value);
+    $value = str_replace("\n", "", $value);
     $libs[$value] = null;
 }
 $keys = array_keys($libs);
-$file = fopen("database/score.csv", "r");
+$file = fopen("database/libs.csv", "r");
 foreach ($libs as $key => $value) {
     while(!feof($file)) {
         $line = fgets($file);
@@ -41,10 +45,11 @@ fclose($file);
 $file = fopen("game_config.bin", "w");
 $file2 = fopen("start.sh", "w");
 fwrite($file2, "#!/bin/bash\n");
-fwrite($file2, "diretory=$(dirname -- $(readlink -fn -- \"$0\"))\n");
-$file2_content = "./opt/splashmem/splash "."$"."directory/game_config.bin";
+fwrite($file2, "directory=$(dirname -- $(readlink -fn -- \"$0\"))\n");
+$file2_content = "/opt/splashmem/splashmem "."$"."directory/game_config.bin";
+fwrite($file, str_pad($_SESSION["name"], 25, "\0"));
 foreach($libs as $key => $value) {
-    $fill_name = str_pad($value, 30, "\0");
+    $fill_name = str_pad($value, 25, "\0");
     $fill_lib = str_pad($key, 30, "\0");
     $file2_content .= " $"."directory/libs/".$key;
     fwrite($file, $fill_name . $fill_lib);

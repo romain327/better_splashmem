@@ -1,40 +1,30 @@
-# makefile
-SRCS=$(wildcard *.c)
-OBJS=$(SRCS:.c=.o)
-CFLAGS= -Wall -g2 -fPIC  # -DDEBUG
-LDFLAGS= -ldl -lSDL2
-EXE=splash
+CC = gcc
+DB = gdb
+CFLAGS = -Wall -g2
 
-all: players $(OBJS)
-	@echo $(SRCS) 
-	gcc  $(OBJS) $(LDFLAGS) -o $(EXE)
+SRCDIR = src
+INC = include
+SRCS = $(wildcard $(SRCDIR)/*.c)
+OBJS = $(SRCS:.c=.o)
+EXE = splashmem
+ARGS = game_config.bin libs/p1.so libs/p2.so libs/p3.so libs/p4.so
 
-players:
-	cd pl && $(MAKE)
+LDFLAGS = `sdl2-config --libs --cflags` -lSDL2_ttf -lSDL2_mixer -lcurl
 
-clean_pl:
-	cd pl && $(MAKE) clean
+all: $(EXE)
 
-clean_all: clean 
-	cd pl && $(MAKE) clean
+$(EXE): $(OBJS)
+	mv *.o $(SRCDIR)
+	$(CC) $(CFLAGS) -I$(INC) $(OBJS) $(LDFLAGS) -o $(EXE)
 
-tp5: $(OBJS)
-	gcc  $(OBJS) -ldl -lSDL2 -lsplash -o $(EXE)
+%.o: %.c
+	$(CC) $(CFLAGS) -I$(INC) -c $<
 
-liba: $(OBJS)
-	ar crs libsplash.a actions.o player.o world.o render.o bomb.o
+clean:
+	rm -f $(SRCDIR)/*.o $(EXE)
 
-affiche:
-	@echo TOTO
+debug: $(EXE)
+	$(DB) $(EXE) $(ARGS)
 
-libso: affiche all 
-	gcc -shared -o libsplash.so actions.o main.o player.o world.o
-
-clean: 
-	$(DEL) -f core
-	rm -f *.a
-	rm -f *.so
-	rm -f $(OBJS)
-	rm -f $(EXE)
-
-	
+run:
+	./$(EXE) $(ARGS)

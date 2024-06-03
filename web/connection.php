@@ -6,6 +6,8 @@ $css = file_get_contents("css/light.css");
 
 session_start();
 
+$html = change_mode($html, "[css]", $_SESSION["mode"], "[icon]", $_SESSION["icon"], "[background]", $_SESSION["background"]);
+
 $color = file_get_contents("database/color.csv");
 $color = str_replace("\n", "", $color);
 $new_color = get_color($_SESSION["mode"]);

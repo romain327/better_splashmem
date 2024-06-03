@@ -12,7 +12,7 @@ body {
 }
 
 .main_links {
-    color: #ee82ee;
+    color: #00ffff;
 }
 
 .main_links:hover {
@@ -20,11 +20,11 @@ body {
 }
 
 .title {
-    color: #ee82ee;
+    color: #00ffff;
 }
 
 fieldset {
-    border: solid 2px #ee82ee;
+    border: solid 2px #00ffff;
 }
 
 .menu_link {
@@ -32,27 +32,27 @@ fieldset {
 }
 
 .menu_link:hover {
-    color: #ee82ee;
+    color: #00ffff;
 }
 
 .menu_link2 {
-    color: #ee82ee;
+    color: #00ffff;
 }
 
 input {
-    border: 2px solid #ee82ee;
+    border: 2px solid #00ffff;
     background-color: #0f0a20;
-    color: #ee82ee;
+    color: #00ffff;
 }
 
 .button {
-    border: 2px solid #ee82ee;
+    border: 2px solid #00ffff;
     background-color: #0f0a20;
-    color: #ee82ee;
+    color: #00ffff;
 }
 
 .button:hover {
-    background-color: #ee82ee;
+    background-color: #00ffff;
     color: #0f0a20;
 }
 
@@ -62,7 +62,7 @@ input {
 }
 
 .pwrup_name {
-    color: #ee82ee;
+    color: #00ffff;
 }
 
 .pwrup_name:hover {
