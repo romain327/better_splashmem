@@ -1,0 +1,294 @@
+\documentclass[12pt, openany]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[french]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\Sharp}{{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\#}}}}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+\setcounter{tocdepth}{5}
+\title{Documentation Logicielle Splashmem}
+\date{~}
+\begin{document}
+	\maketitle
+
+	\tableofcontents
+	
+	\section{Jeu}
+	\subsection{Technologies utilisées}
+	Le jeu est codé intégralement en C, en utilisant la librairie de rendu graphique SDL2 et la librairie de transfert de données libcurl.\\
+	\subsection{Organisation du jeu}
+	A la racine du projet on retrouve 3 dossiers et un fichier :
+	\begin{itemize}[label=$-$]
+		\item assets/
+		\item include/
+		\item src/
+		\item makefile
+	\end{itemize}
+	
+	\subsubsection{assets/}
+	Le dossier assets/ contient tous les fichiers qui ne sont pas du code. On y trouve notamment les sprites pour le rendu graphique du jeu, la musique, la police de caractère, etc.\\
+	
+	\subsubsection{include/}
+	Le dossier include/ contient tous les headers associés aux fichiers c du projet. On trouve un header pour chaque fichier c, et un header nommé params.h qui contient tous les paramètres du jeux.\\
+	
+	\subsubsection{src/}
+	Le dossier src contient tous les fichiers sources du jeu.\\
+	
+	\subsection{Fonctionnement du jeu}
+	Le code du jeu se découpe en trois phases : une phase d'initialisation, puis une boucle qui déroule le jeu et enfin une phase qui vient après la fin du jeu. C est un language procédural mais le jeu a été pensé en termes d'interactions entre des objets, on retrouve donc des structures et fichiers C permettant de mimer le concept de classes :\\
+	\begin{itemize}[label=$-$]
+		\item inits.c contient les méthodes d'initialisation\\
+		\item action.c contient le code des actions effectuées par les joueurs\\
+		\item handler.c contient le code permettant de gérer les événements clavier (appui sur q pour fermer le jeu par exemple)\\
+		\item entities.c contient le code des entités du jeu (joueurs, bombes, map)\\
+		\item finish.c contient les fonctions qui vont s'exécuter lors de la fin du jeu, lorsque tous les joueurs ont atteint 0 crédits.\\
+	\end{itemize}
+	
+	\subsubsection{phase d'initialisation des objets}
+	La phase d'initialisation est assurée par plusieurs fonctions d'initialisation, qui vont venir mettre en place la fenêtre, le renderer, la map, les joueurs, etc. Ces fonctions d'initialisation se situent principalement dans les fichiers inits.c et entities.c.\\
+	
+	\subsubsection{phase de jeu}
+	
+	\subsubsection{phase de fin}
+	
+	\section{Site web}
+	\subsection{Technologies utilisées}
+	Pour le frontend :
+	\begin{itemize}[label=$-$]
+		\item HTML5\\
+		\item CSS\\
+		\item JavaScript\\
+	\end{itemize}
+	Pour le backend :
+	\begin{itemize}[label=$-$]
+		\item PHP\\
+	\end{itemize}
+	La base de données est composée de fichiers CSV dont le contenu est séparer par des ";".\\
+
+	\subsection{Organisation du serveur web}
+	\subsubsection{Frontend}
+	Le frontend est réparti en 4 dossiers :
+	\begin{itemize}[label=$-$]
+		\item assets : contient les images et autres fichiers\\
+		\item css : contient les fichiers css\\
+		\item html : contient les fichiers html\\
+		\item js : contient les fichiers javascript\\
+	\end{itemize}
+
+	\paragraph{assets/}
+	Le dossier assets contient un dossier img qui contient les images utilisées dans le site web, et un dossier fonts qui contient les polices utilisées dans le site web.
+
+	\paragraph {css/}
+	Le CSS est réparti en deux fichiers : style.css et color.css. Le fichier style.css contient les styles généraux du site web, et le fichier color.css contient les couleurs utilisées dans le site web.
+
+	\paragraph {html/}
+	Le dossier html contient les fichiers html du site web :
+	\begin{itemize}[label=$-$]
+		\item landing.html : page d'accueil\\
+		\item account.html : page de gestion du compte\\
+		\item install.html : page contenant les instructions d'installation du jeu\\
+		\item ranking.html : page contenant le classement\\
+		\item rules.html : page contenant les règles et mouvements du jeu\\
+	\end{itemize}
+
+	\paragraph {js/}
+	Le dossier js contient les fichiers javascript du site web :
+	\begin{itemize}[label=$-$]
+		\item index\_script.js : contient les requêtes AJAX pour la page d'accueil\\
+		\item ranking\_script.js : contient la requête AJAX pour la page ranking\\
+		\item hide\_gif.js : permet de cacher les gifs de la page rules.html\\
+	\end{itemize}
+
+	\subsubsection{Backend}
+	Le backend est réparti en 3 dossiers :
+	\begin{itemize}[label=$-$]
+		\item à la racine du site on retrouve tous les fichiers php\\
+		\item database : contient les fichiers csv constituants la base de données\\
+		\item files : contient le package splashmem.deb ainsi que l'archive game.zip (de manière temporaire pour cette dernière)\\
+		\item player\_libs : contient les librairies uploadées par les joueurs\\
+	\end{itemize}
+
+	Le fichier JavaScript session\_destroy\_on\_close.js est le seul fichier JS dédié au backend, puisqu'il permet de détruire la session lors de la fermeture de la page. Néanmoins, il n'existe pas vraiment de méthode pour gérer ça, donc l'efficacité de ce fichier est relative et il est possible que la session ne soit pas détruite, même à la fermeture de la page.\\
+	Ce fichier est nécessaire au bon fonctionnement du concept de connexion rapide. En effet comme la connexion rapide ne nécessite pas de mot de passe, l'idée est de détruire les données des utilisateurs ayant utilisé la connexion rapide, et ce même s'ils ne se déconectent pas eux même.\\
+
+	\subsection{Fonctionnement du site web}
+	\subsubsection{Page d'accueil}
+	Le code de la page d'accueil se trouve dans le fichier landing.html.\\
+	La page d'accueil est structurée de la manière suivante :
+	\begin{itemize}[label=$-$]
+		\item Un header contenant les liens vers les autres pages\\
+		\item le top 10 du classement\\
+		\item un texte d'accueil\\
+		\item Un formulaire de connexion contenant un champ pour le pseudo, un champ pour le mot de passe et un bouton de connexion\\
+		\item Un formulaire d'inscription contenant un champ pour le pseudo, un champ pour le mot de passe, un champ pour la confirmation du mot de passe et un bouton d'inscription\\
+		\item un formulaire de connexion rapide contenant un champ pour le pseudo et un bouton de connexion\\
+		\item un formulaire de sélection des librairies composé de checkboxes pour chaque librairie ainsi qu'un bouton de validation\\
+	\end{itemize}
+
+	\paragraph{Formulaires de connexion}
+	Les trois formulaires de connexion de la page d'accueil envoient les données en POST à la page connection.php.\\
+	La méthode est la même pour les trois formulaires :\\
+	\begin{itemize}[label=$-$]
+		\item si une session est ouverte, on la détruit en utilisant la fonction logout() du fichier functions.php, puis on crée une nouvelle session et on traite les données.\\
+		\item sinon, on ouvre une session et on traite les données.\\
+	\end{itemize}
+
+	Le formulaire de connexion rapide permet de se connecter sans mot de passe. Il suffit de rentrer un pseudo et de cliquer sur le bouton de connexion. Celui-ci permet de créer des parties et d'uploader des librairies, mais toutes les entrées dans la base de données associées au pseudo choisi seront supprimées lors de la déconnexion. Il faut créer un compte si l'on veut conserver ses données.\\
+	Les pseudos sont limités en taille, pour faciliter leur récupération par le jeu. ainsi, un pesudo doit faire au maximum 25 caractère, puisque le nom d'une librairie est composée du pseudo ainsi que de 5 caractères de plus, cela permet de réserver 30 octets à la librairie.\\
+	Ainsi, un pseudo doit se conformer à l'expression régulière (RegEx) suivante :\\
+	\begin{lstlisting}[language=html]
+		pattern="^[a-zA-Z0-9-]{1,25}$"
+	\end{lstlisting} 
+	\paragraph{Formulaire de sélection des librairies}
+	Les librairies sont rafraichies toutes les 20 secondes via une requête AJAX. Le code php permettant de récupérer les données de la base de données est contenu dans le fichier refresh\_libs.php. La requête est dans le fichier index\_script.js.\\
+	Le formulaire de sélection des librairies envoie les données en POST à la page game\_setup.php. (voir section)\\
+	Le formulaire de sélection des librairies permet de sélectionner les librairies que l'on veut utiliser pour jouer. Il suffit de cocher les librairies que l'on veut utiliser et de cliquer sur le bouton de création. un lien de téléchargement apparaitera alors et en cliquant sur celui-ci, les librairies sélectionnées seront alors téléchargées dans un zip nommé game.zip.\\
+
+	\paragraph{Classement}
+	Le classement est rafraichi en temps réel via une requête AJAX. Le code php permettant de récupérer les données de la base de données est contenu dans le fichier refresh\_ranking.php. La requête est dans le fichier index\_script.js.\\
+
+	\subsubsection{Page de gestion du compte}
+	Le code de la page de gestion du compte se trouve dans le fichier account.html.\\
+	La page de gestion du compte est structurée de la manière suivante :
+	\begin{itemize}[label=$-$]
+		\item Un header contenant les liens vers les autres pages\\
+		\item Un formulaire de changement de mot de passe contenant un champ pour l'ancien mot de passe, un champ pour le nouveau mot de passe, un champ pour la confirmation du nouveau mot de passe et un bouton de validation\\
+		\item Un formulaire de suppression de compte contenant un champ pour le mot de passe et un bouton de suppression\\
+		\item Un formulaire de suppression des librairies permettant de sélectionner les librairies uploadées et de les supprimer.\\
+	\end{itemize}
+
+	Les trois formulaires ci-dessous envoient leurs données en POST, respecivement aux pages change\_infos.php, delete\_account.php et account.php.\\
+	Le header de la page de gestion du compte contient également un lien pour se déconnecter (voir section sur la déconnexion).\\
+	\subsubsection{Page de classement}
+	Le code de la page de classement se trouve dans le fichier ranking.html.\\
+	Contrairement au classement de la page d'accueil, celui-ci n'est pas limité à seulement le top 10. La navigation se fait via une propriété d'overflow scroll, évitant de surcharger visuellement la page.\\
+	Le classement est rafraichi en temps réel via une requête AJAX. Le code php permettant de récupérer les données de la base de données est contenu dans le fichier display\_ranking.php. La requête est dans le fichier ranking\_script.js.\\
+
+	\subsubsection{Page des règles}
+	Le code de la page des règles se trouve dans le fichier rules.html.\\
+	La page se compose de 2 catégories :
+	\begin{itemize}[label=$-$]
+		\item Les règles du jeu\\
+		\item Les mouvements du jeu\\
+	\end{itemize}
+
+	\paragraph{Mouvements}
+	Chaque mouvement a un nom et une illustration sous forme d'un gif. Le gif peut être caché en cliquant sur le nom du mouvement. Le code permettant d'afficher ou de cacher le gif se trouve dans le fichier hide\_gif.js.\\
+	Il y a aussi une brève description du mouvement et son coût en crédits.\\
+
+	\subsubsection{Installation du jeu}
+	Le code de la page d'installation se trouve dans le fichier install.html.\\
+	La page d'installation contient les instructions pour installer les librairies utilisées par le jeu, ainsi qu'un lien permettant de télécharger l'archive du jeu et les instructions permettant de l'installer.\\
+
+	\subsubsection{Déconnexion}
+	Pour les comptes en connexion rapide, la déconnexion se fait en cliquant sur le lien "Déconnexion" dans le header. Pour les comptes ayant un mot de passe, il faut passer par la page de gestion du compte. La page de gestion du compte est accessible dans les headers de toutes les pages.\\
+
+	\paragraph{Fonctionnement de la déconnexion}
+	Le script de déconnexion est relativement simple : on démarre une session, on appelle la fonction logout() codée dans le fichier functions.php et on redirige vers la page d'accueil.\\
+
+	\subsubsection{Fonctions PHP}
+	Un fichier functions.php contient les fonctions PHP utilisées dans les pages du site web.\\
+	Les fonctions sont les suivantes :\\
+
+	\paragraph{rename\_lib\_as\_player\_name(\$curr\_name, \$player\_name, \$nb\_libs)}
+	Cette fonction permet de renommer les librairies uploadées par les joueurs.\\
+	Son fonctionnement est simple : on récupère en amont le pseudo du joueur et le numéro de version de la dernière librairie qu'il a uploadé, on incrémente ce numéro et on on appelle la fonction qui se charge de renommer la librairie de la manière suivante : [pesudo]\_[numéro de version].so.\\
+
+
+	\paragraph{logout()}
+	Cette fonction permet à un utilisateur de se déconnecter. Elle est utilisée dans quatre cas :
+	\begin{itemize}[label=$-$]
+		\item lors de la connexion d'un utilisateur\\
+		\item lors de la déconnexion volontaire d'un utilisateur\\
+		\item lors du fonctionnement du script JS session\_destroy\_on\_close.js, pour déconnecter l'utilisateur\\
+		\item lors de la suppression d'un compte\\
+	\end{itemize}
+	Le fonctionnement est le suivant :\\
+	Lors de la connexion, une variable de session \$\_SESSION[\"user\"] est créée. Elle va prendre la valeur 0 si c'est une connexion rapide, ou la valeur 1 si c'est une connexion avec mot de passe.\\
+	Lors de l'appel de la fonction logout(), on regarde la valeur de cette variable. Si c'est 0, on supprime les données de l'utilisateur dans la base de données. Si c'est 1, on ne fait rien.\\
+	Dans le cas d'une suppression de compte, on passe la valeur de \$\_SESSION[\"user\"] à 0 avant d'appeler la fonction logout().\\
+
+	\subsubsection{game\_setup.php}
+	Le fichier game\_setup.php est appelé lors de la création d'une partie. Il permet de créer un zip contenant les librairies sélectionnées par l'utilisateur.\\
+	Le fonctionnement est le suivant :\\
+	\begin{itemize}[label=$-$]
+		\item On récupère les librairies sélectionnées par l'utilisateur\\
+		\item On crée un dossier libs\\
+		\item On copie les librairies sélectionnées dans le dossier libs\\
+		\item On crée un fichier start.sh permettant de lancer le jeu avec les librairies contenues dans le dossier libs\\
+		\item On crée un fichier game\_config.bin contenant la configuration du jeu\\
+		\item On crée un zip contenant le dossier libs, le fichier start.sh et le fichier game\_config.bin\\
+		\item On recharge la page avec un lien permettant de télécharger le zip.\\
+	\end{itemize}
+
+	le zip créé contient :
+	\begin{itemize}[label=$-$]
+		\item un dossier libs contenant les librairies séléctionnées\\
+		\item un fichier start.sh permettant de lancer le jeu avec les librairies contenues dans le dossier libs\\
+		\item un fichier game\_config.bin contenant la configuration du jeu\\
+	\end{itemize}
+	Un fichier zip est créé à chaque fois que l'on clique sur le bouton de création. Une fois qu'on a cliqué sur le bouton "créer", un lien permettant de télécharger le zip apparaît. Une fois le zip téléchargé, il est supprimé du serveur.\\
+
+	\paragraph{start.sh}
+	Le fichier start.sh contient une ligne permettant de récupérer le chemin absolu du script, puis de lancer le jeu.\\
+	Par exemple, avec les librairies lib\_1.so et lib\_2.so, le fichier start.sh créé ressemblera à ça :\\
+	\begin{lstlisting}[language=bash]
+		#!/bin/bash
+		directory=$(dirname -- $(readlink -fn -- "$0"))
+		./opt/spashmem/splash $directory/game_config.bin $directory/libs/lib_1.so $directory/libs/lib_2.so
+	\end{lstlisting}
+
+	\paragraph{game\_config.bin}
+	Le fichier game\_config.bin contient les informations permettant au jeu de renvoyer les scores au serveur. Il est structuré de la manière suivante :\\
+	\begin{itemize}[label=$-$]
+		\item 25 octets pour le pseudo du joueur ayant créé la partie\\
+		\item puis, pour chaque librairie contenue dans le dossier libs, on a 25 octets pour le pseudo du joueur qui l'a importée, et 30 octets pour le nom de la librairie\\
+	\end{itemize}
+	De la même manière, le fichier game\_config.bin d'un jeu créé par pseudo0 avec les librairies pseudo0\_1.so et pseudo1\_2.so, importées par les joueurs pseudo0 et pseudo1, ressemblera à ça :\\
+	\begin{lstlisting}
+		00000000: 7073 6575 646f 3000 0000 0000 0000 0000  pseudo0.........
+		00000010: 0000 0000 0000 0000 7073 6575 646f 3000  ........pseudo0.
+		00000020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+		00000030: 0000 0000 0000 7073 6575 646f 305f 312e  ......pseudo0_1.
+		00000040: 736f 0000 0000 0000 0000 0000 0000 0000  so..............
+		00000050: 0000 0000 7073 6575 646f 3100 0000 0000  ....pseudo1.....
+		00000060: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+		00000070: 0000 7073 6575 646f 315f 322e 736f 0000  ..pseudo1_2.so..
+		00000080: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+	\end{lstlisting}
+\end{document}
